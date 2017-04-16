@@ -34,4 +34,17 @@ public class SaintTest
         Saint mu = new Saint("MU",new Armadura("Aries",Categoria.OURO));
         assertEquals(Genero.NAO_INFORMADO,mu.getGenero());
     }
+    
+    @Test
+    public void saintPodeMudarGenero(){
+        Saint mu = new Saint("MU",new Armadura("Aries",Categoria.OURO));
+        mu.setGenero(Genero.MASCULINO);
+        assertEquals(Genero.MASCULINO,mu.getGenero());
+    } 
+    
+    @Test
+    public void aoCriarSaintNasceVivo(){
+        Saint mu = new Saint("MU",new Armadura("Aries",Categoria.OURO));
+        assertEquals(Status.VIVO,mu.getStatus());
+    }
 }
