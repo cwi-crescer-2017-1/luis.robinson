@@ -1,8 +1,8 @@
 
 public enum Genero
 {
-    FEMININO,
-    MASCULINO,
+   FEMININO,
+   MASCULINO,
    NAO_INFORMADO;
    
    
