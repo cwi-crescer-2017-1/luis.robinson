@@ -47,4 +47,20 @@ public class SaintTest
         Saint mu = new Saint("MU",new Armadura("Aries",Categoria.OURO));
         assertEquals(Status.VIVO,mu.getStatus());
     }
+    
+    @Test
+    public void aoCriarSaintNasceComVida(){
+        Saint mu = new Saint("MU",new Armadura("Aries",Categoria.OURO));
+        Double vida = 100.0;
+        assertEquals(vida,mu.getVida());
+    }
+    
+    @Test
+    public void saintPodePerderVida(){
+        Saint mu = new Saint("MU",new Armadura("Aries",Categoria.OURO));
+        Double vida = mu.getVida() - 10.0;
+        mu.perderVida(10.0);
+        assertEquals(vida,mu.getVida());
+    }
+    
 }
