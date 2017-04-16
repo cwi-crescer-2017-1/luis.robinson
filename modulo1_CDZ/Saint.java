@@ -44,4 +44,8 @@ public class  Saint {
         this.vida -= vida;  
     }
     
+    public Integer getValorArmadura(){
+        return this.armadura.getValorArmadura();
+    }
+    
 }
