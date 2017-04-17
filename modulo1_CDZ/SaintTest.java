@@ -44,7 +44,7 @@ public class SaintTest
     @Test
     public void aoCriarSaintNasceVivo(){
         Saint mu = new Saint("MU",new Armadura("Aries",Categoria.OURO));
-        assertEquals(Status.VIVO,mu.getStatus());
+        assertEquals(true,mu.getSaintVivo());
     }
     
     @Test
@@ -60,18 +60,6 @@ public class SaintTest
         Double vida = mu.getVida() - 10.0;
         mu.perderVida(10.0);
         assertEquals(vida,mu.getVida());
-    }
-    
-    @Test
-    public void saintPerdeVidaNaBatalha(){
-        Saint mu = new Saint("MU",new Armadura("Aries",Categoria.OURO));
-        Saint seiya = new Saint("SEIYA",new Armadura("pégaso",Categoria.BRONZE));
-        Batalha batalha = new Batalha(mu,seiya,10.0);
-        batalha.iniciar();    
-        
-        Double vida = 90.0;        
-        
-        assertEquals(vida,seiya.getVida());
-    }
+    }  
     
 }
