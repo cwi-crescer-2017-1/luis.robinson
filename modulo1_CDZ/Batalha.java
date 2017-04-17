@@ -1,7 +1,7 @@
 
 public class Batalha
 {
-   private Double dano = 10.0;
+   final Double dano = 10.0;
    private Saint primeiro;
    private Saint segundo;
     
@@ -12,6 +12,7 @@ public class Batalha
     }
     
    public void iniciar(){
+       // int valor1 = this.primeiro.getArmadura().getCategoria().getValor();
        if (primeiro.getCategoriaValorArmadura() >= segundo.getCategoriaValorArmadura()){
            segundo.perderVida(dano);
        } else {
