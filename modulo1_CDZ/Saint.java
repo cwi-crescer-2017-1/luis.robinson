@@ -36,8 +36,8 @@ public class  Saint {
         return this.vida;
     }
     
-    public void perderVida(Double vida){
-        this.vida -= vida;  
+    public void perderVida(Double dano){
+        this.vida -= dano;  
     }
     
     public Integer getValorArmadura(){

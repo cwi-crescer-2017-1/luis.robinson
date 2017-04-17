@@ -57,10 +57,11 @@ public class SaintTest
     
     @Test
     public void saintPodePerderVida(){
-        Saint mu = new Saint("MU",new Armadura("Aries",Categoria.OURO));
-        Double vida = mu.getVida() - 10.0;
+        Saint mu = new Saint("MU",new Armadura("Aries",Categoria.OURO));        
         mu.perderVida(10.0);
-        assertEquals(vida,mu.getVida());
+        assertEquals(90.0,mu.getVida(),0.01);        
+        mu.perderVida(10.0);
+        assertEquals(80.0,mu.getVida(),0.01);
     }  
     
 }
