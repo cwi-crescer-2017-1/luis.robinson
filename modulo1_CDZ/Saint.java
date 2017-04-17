@@ -5,6 +5,7 @@ public class  Saint {
     private double vida = 100.0;
     private Genero genero = Genero.NAO_INFORMADO;
     private Status status = Status.VIVO;
+    private int qtsSentidosDespertados = 5;
     
     //construtor
     public Saint(String nome, Armadura armadura){
@@ -42,6 +43,10 @@ public class  Saint {
     
     public Integer getCategoriaValorArmadura(){
         return this.armadura.getValorArmadura();
+    }
+    
+    public int getQtsSentidosDespertados(){
+        return this.qtsSentidosDespertados;
     }
     
 }

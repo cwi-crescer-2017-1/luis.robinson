@@ -64,4 +64,12 @@ public class SaintTest
         assertEquals(80.0,mu.getVida(),0.01);
     }  
     
+    @Test
+    public void criarSaintNasceCom5SentidosDespertados(){
+        Saint mu = new Saint("MU",new Armadura("Aries",Categoria.OURO));
+        assertEquals(5,mu.getQtsSentidosDespertados());
+        
+    }
+    
+    
 }
