@@ -40,7 +40,7 @@ public class  Saint {
         this.vida -= dano;  
     }
     
-    public Integer getValorArmadura(){
+    public Integer getCategoriaValorArmadura(){
         return this.armadura.getValorArmadura();
     }
     
