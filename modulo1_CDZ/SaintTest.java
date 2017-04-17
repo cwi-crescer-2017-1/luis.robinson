@@ -44,7 +44,7 @@ public class SaintTest
     @Test
     public void aoCriarSaintNasceVivo(){
         Saint mu = new Saint("MU",new Armadura("Aries",Categoria.OURO));
-        assertEquals(true,mu.getSaintVivo());
+        assertEquals(Status.VIVO,mu.getStatus());
     }
     
     @Test
