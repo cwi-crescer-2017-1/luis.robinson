@@ -50,8 +50,9 @@ public class SaintTest
     @Test
     public void aoCriarSaintNasceComVida(){
         Saint mu = new Saint("MU",new Armadura("Aries",Categoria.OURO));
-        Double vida = 100.0;
-        assertEquals(vida,mu.getVida());
+               
+        //0.01 é tolerância de erro;
+        assertEquals(100.0,mu.getVida(),0.01);
     }
     
     @Test
