@@ -2,6 +2,7 @@ public class  Saint {
     private String nome = "";
     private Armadura armadura;
     private boolean armaduraVestida;
+    private boolean saintVivo;
     private double vida = 100.0;
     private Genero genero = Genero.NAO_INFORMADO;
     private Status status = Status.VIVO;
@@ -26,14 +27,17 @@ public class  Saint {
     
     public void setGenero(Genero genero){
         this.genero = genero;
-    }
-    
-    public Status getStatus(){
-        return this.status;
-    }
+    }    
     
     public void setStatus(Status status){
         this.status = status;
+    }
+    
+    public boolean getSaintVivo(){
+        if (status == Status.VIVO){
+            this.saintVivo = true;
+        }
+        return this.saintVivo;
     }
     
     public Double getVida(){
