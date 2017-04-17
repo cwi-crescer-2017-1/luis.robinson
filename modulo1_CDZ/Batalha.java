@@ -2,21 +2,20 @@
 public class Batalha
 {
     Double dano = 10.0;
-    Saint first;
-    Saint second;
+    Saint primeiro;
+    Saint segundo;
     
-    public Batalha(Saint first, Saint second,Double dano)
+    public Batalha(Saint primeiro, Saint segundo)
     {
-        this.first = first;
-        this.second = second;
-        this.dano = dano;       
+        this.primeiro = primeiro;
+        this.segundo = segundo;       
     }
     
    public void iniciar(){
-       if (first.getValorArmadura() >= second.getValorArmadura()){
-           second.perderVida(dano);
+       if (primeiro.getValorArmadura() >= segundo.getValorArmadura()){
+           segundo.perderVida(dano);
        } else {
-           first.perderVida(dano);
+           primeiro.perderVida(dano);
        }
     }
    
