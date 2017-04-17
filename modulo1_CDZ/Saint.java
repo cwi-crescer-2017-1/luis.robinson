@@ -5,30 +5,15 @@ public class  Saint {
     private double vida = 100.0;
     private Genero genero = Genero.NAO_INFORMADO;
     private Status status = Status.VIVO;
-    private int qtdSentidosDespertados = 4;
+    // quem herda tem acesso ao protected
+    protected int qtdSentidosDespertados;
     
     //construtor
     public Saint(String nome, Armadura armadura) throws Exception{
         this.nome = nome;
         this.armadura = armadura;
         
-          if (this.armadura.getCategoria() == Categoria.PRATA) {
-            this.qtdSentidosDespertados = 6;
-        } else if (this.armadura.getCategoria() == Categoria.OURO) {
-            this.qtdSentidosDespertados = 7;
-            String constelacao = armadura.getConstelacao();
-            if ( !constelacao.equals("Áries") && !constelacao.equals("Touro") && !constelacao.equals("Escorpião") 
-            && !constelacao.equals("Virgem")
-            && !constelacao.equals("Peixes")
-            && !constelacao.equals("Câncer")
-            ) {
-                // dar erro
-                throw new Exception("Constelação inválida");
-            }
-        } else {
-            // bronze
-            this.qtdSentidosDespertados = 5;
-        }
+           
     }
     
     public void vestirArmadura(){
