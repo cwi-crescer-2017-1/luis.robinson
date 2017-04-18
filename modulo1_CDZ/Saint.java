@@ -1,49 +1,50 @@
 import java.security.InvalidParameterException;
 
-public class  Saint {
-    private String nome = "";
+public class  Saint {    
+    private String nome;
     private Armadura armadura;
-    private boolean armaduraVestida;   
-    private double vida = 100.0;
+    private boolean armaduraVestida;
     private Genero genero = Genero.NAO_INFORMADO;
     private Status status = Status.VIVO;
-    // quem herda tem acesso ao protected
+    private double vida = 100.;
     protected int qtdSentidosDespertados;
-    
-    //construtor
-    public Saint(String nome, Armadura armadura) throws Exception{
+    private int acumuladorProximoGolpe = 0;
+
+    public Saint(String nome, Armadura armadura) throws Exception {
         this.nome = nome;
         this.armadura = armadura;
-        
-           
+        /*int valorCategoria = this.armadura.getCategoria().getValor();
+        this.qtdSentidosDespertados += valorCategoria;*/
     }
-    
-    public void vestirArmadura(){
+
+    public void vestirArmadura() {
         this.armaduraVestida = true;
     }
-    
-    public boolean getArmaduraVestida(){
+
+    // camelCase
+    public boolean getArmaduraVestida() {
         return this.armaduraVestida;
-    }     
-    
-    public Genero getGenero(){
+    }
+
+    public Genero getGenero() {
         return this.genero;
     }
-    
-    public void setGenero(Genero genero){
+
+    public void setGenero(Genero genero) {
         this.genero = genero;
     }
-        
-    public Status getStatus(){        
+
+    public Status getStatus() {
         return this.status;
     }
-    
-    public Double getVida(){
+
+    public double getVida() {
         return this.vida;
     }
-    
-    public void perderVida(Double dano){
-          if (dano < 0) {
+
+    public void perderVida(double dano) {
+
+        if (dano < 0) {
             throw new InvalidParameterException("dano");
             //throw new IllegalArgumentException("dano");
         }
@@ -55,20 +56,33 @@ public class  Saint {
             //this.vida = this.vida - dano;
             this.vida -= dano;
         }
-        
-         
     }
-    
-    public Integer getCategoriaValorArmadura(){
-        return this.armadura.getValorArmadura();
-    }
-    
-    public int getQtdSentidosDespertados(){
-        return this.qtdSentidosDespertados;
-    }
-    
+
     public Armadura getArmadura() {
         return this.armadura;
     }
+
+    public int getQtdSentidosDespertados() {
+        return this.qtdSentidosDespertados;
+    }
     
+    private Constelacao getConstelacao() {
+        return this.armadura.getConstelacao();
+    }
+    
+    public Golpe[] getGolpes() {
+        return getConstelacao().getGolpes();
+    }
+    
+    public void aprenderGolpe(Golpe golpe) {
+        getConstelacao().adicionarGolpe(golpe);
+    }
+    
+    public Golpe getProximoGolpe() {
+        Golpe[] golpes = getGolpes();
+        int posicao = this.acumuladorProximoGolpe % golpes.length;
+        this.acumuladorProximoGolpe++;
+        return golpes[posicao];
+    }
+
 }
