@@ -4,70 +4,92 @@ import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import java.security.InvalidParameterException;
 
 
 public class SaintTest
 {
     @Test
-    public void vestirArmaduraDeixaArmaduraVestida()throws Exception{
-        //AAA
-        //1.Arrange - montagem dos dados de teste
-        Armadura escorpiao = new Armadura("Escorpião",Categoria.OURO);
-        GoldSaint milo = new GoldSaint("Milo",escorpiao);
-        //2.Act - invocar a ação a ser testada
+    public void vestirArmaduraDeixaArmaduraVestida() throws Exception {
+        // AAA
+        // 1. Arrange - Montagem dos dados de teste
+        Armadura escorpiao = new Armadura("Escorpião", Categoria.OURO);
+        Saint milo = new Saint("Milo", escorpiao);
+        // 2. Act - Invocar a ação a ser testada
         milo.vestirArmadura();
-        //3.Assert - verificação dos resultados do teste
+        // 3. Assert - Verificação dos resultados do teste
         boolean resultado = milo.getArmaduraVestida();
-        assertEquals(true,resultado);
-        
-    }    
-    
-    @Test
-    public void naoVestirArmaduraDeixaArmaduraNaoVestida()throws Exception{
-        BronzeSaint seiya = new BronzeSaint("Seiya", new Armadura("Pégaso",Categoria.BRONZE));
-        assertEquals(false,seiya.getArmaduraVestida());
+        assertEquals(true, resultado);
     }
-    
+
     @Test
-    public void aoCriarSaintGeneroNaoInformado() throws Exception{
-        GoldSaint mu = new GoldSaint("MU",new Armadura("Áries",Categoria.OURO));
-        assertEquals(Genero.NAO_INFORMADO,mu.getGenero());
+    public void naoVestirArmaduraDeixaArmaduraNaoVestida() throws Exception {
+        Saint hyoga = new Saint("Hyoga", new Armadura("Cisne", Categoria.BRONZE));
+        assertEquals(false, hyoga.getArmaduraVestida());
     }
-    
+
     @Test
-    public void saintPodeMudarGenero()throws Exception{
-        GoldSaint mu = new GoldSaint("MU",new Armadura("Áries",Categoria.OURO));
-        mu.setGenero(Genero.MASCULINO);
-        assertEquals(Genero.MASCULINO,mu.getGenero());
-    } 
-    
-    @Test
-    public void aoCriarSaintNasceVivo()throws Exception{
-        GoldSaint mu = new GoldSaint("MU",new Armadura("Áries",Categoria.OURO));
-        assertEquals(Status.VIVO,mu.getStatus());
+    public void aoCriarSaintGeneroENaoInformado() throws Exception {
+        Armadura virgem = new Armadura("Virgem", Categoria.OURO);
+        Saint shaka = new Saint("Shaka", virgem);
+        assertEquals(Genero.NAO_INFORMADO, shaka.getGenero());
     }
-    
+
     @Test
-    public void aoCriarSaintNasceComVida()throws Exception{
-        GoldSaint mu = new GoldSaint("MU",new Armadura("Áries",Categoria.OURO));
-               
-        //0.01 é tolerância de erro;
-        assertEquals(100.0,mu.getVida(),0.01);
+    public void deveSerPossivelAlterarOGenero() throws Exception {
+        Saint jabu = new Saint("Jabu", new Armadura("Unicórnio", Categoria.BRONZE));
+        jabu.setGenero(Genero.MASCULINO);
+        assertEquals(Genero.MASCULINO, jabu.getGenero());
+        jabu.setGenero(Genero.FEMININO);
+        assertEquals(Genero.FEMININO, jabu.getGenero());
     }
-    
+
     @Test
-    public void saintPodePerderVida() throws Exception{
-        GoldSaint mu = new GoldSaint("MU",new Armadura("Áries",Categoria.OURO));        
-        mu.perderVida(10.0);
-        assertEquals(90.0,mu.getVida(),0.01);        
-        mu.perderVida(10.0);
-        assertEquals(80.0,mu.getVida(),0.01);
-    }  
-    
-    @Test(expected=Exception.class)
+    public void statusInicialDeveSerVivo() throws Exception {
+        Saint shiryu = new Saint("Shiryu", new Armadura("Dragão", Categoria.BRONZE));
+        assertEquals(Status.VIVO, shiryu.getStatus());
+    }
+
+    @Test
+    public void vidaInicialDeveSer100() throws Exception {
+        Saint shiryu = new Saint("Shiryu", new Armadura("Dragão", Categoria.BRONZE));
+        assertEquals(100.0, shiryu.getVida(), 0.01);
+    }
+
+    @Test
+    public void perderDanoComValor10() throws Exception {
+        // Arrange
+        Saint shiryu = new Saint("Shiryu", new Armadura("Dragão", Categoria.BRONZE));
+        // Act
+        shiryu.perderVida(10.0);
+        // Assert
+        assertEquals(90, shiryu.getVida(), 0.01);
+    }
+
+    @Test
+    public void perderDanoComValor100() throws Exception {
+        // Arrange
+        Saint shiryu = new Saint("Shiryu", new Armadura("Dragão", Categoria.BRONZE));
+        // Act
+        shiryu.perderVida(100.0);
+        // Assert
+        assertEquals(0, shiryu.getVida(), 0.01);
+    }
+
+    @Test
+    public void perderDanoComValor1000() throws Exception {
+        // Arrange
+        Saint shiryu = new Saint("Shiryu", new Armadura("Dragão", Categoria.BRONZE));
+        // Act
+        shiryu.perderVida(1000.0);
+        // Assert
+        assertEquals(0, shiryu.getVida(), 0.01);
+    }
+
+    @Test(expected=InvalidParameterException.class)
     public void perderDanoComValorMenos1000() throws Exception {
         // Arrange
-        BronzeSaint shiryu = new BronzeSaint("Shiryu", new Armadura("Dragão", Categoria.BRONZE));
+        Saint shiryu = new Saint("Shiryu", new Armadura("Dragão", Categoria.BRONZE));
         // Act
         shiryu.perderVida(-1000.0);
         // Assert
@@ -96,34 +118,4 @@ public class SaintTest
     public void constelacaoInvalidaDeOuroDeveLancarErro() throws Exception {
         new GoldSaint("Bernardo", new Armadura("Café", Categoria.OURO));
     }
-    
-    @Test
-    public void saintMorreQuandoVidaMenor1() throws Exception{
-        GoldSaint aldebaran = new GoldSaint("Aldebaran", new Armadura("Touro", Categoria.OURO));
-        aldebaran.perderVida(100.0);
-        assertEquals(Status.MORTO,aldebaran.getStatus());
-        
-    }
-    
-    @Test(expected=Exception.class)
-    public void daErroQuandoDanoNegativo() throws Exception{
-        GoldSaint aldebaran = new GoldSaint("Aldebaran", new Armadura("Touro", Categoria.OURO));
-        aldebaran.perderVida(-100.0);        
-    }
-    
-    @Test
-    public void saintNaoPodeAlterarStatusDepoisDeMorrer() throws Exception{
-        GoldSaint aldebaran = new GoldSaint("Aldebaran", new Armadura("Touro", Categoria.OURO));
-        aldebaran.perderVida(100.0);
-        assertEquals(Status.MORTO,aldebaran.getStatus());       
-    }
-    
-    @Test
-    public void naoPodePerderVidaDepoisMorto() throws Exception{
-        GoldSaint aldebaran = new GoldSaint("Aldebaran", new Armadura("Touro", Categoria.OURO));
-        aldebaran.perderVida(100.0);
-        aldebaran.perderVida(100.0);
-        assertEquals(0.00,aldebaran.getVida(),0.01);
-    }
-    
 }

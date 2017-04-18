@@ -42,18 +42,21 @@ public class  Saint {
         return this.vida;
     }
     
-    public void perderVida(Double dano) throws InvalidParameterException{
-        if (dano < 0){            
-            throw new InvalidParameterException("Não é permitido dano negativo");
+    public void perderVida(Double dano){
+          if (dano < 0) {
+            throw new InvalidParameterException("dano");
+            //throw new IllegalArgumentException("dano");
         }
-        //Só perde vida se não estiver morto
-        if (status != Status.MORTO){
-            vida -= dano;
+
+        if (vida - dano < 1) {
+            this.status = Status.MORTO;
+            this.vida = 0;
+        } else {
+            //this.vida = this.vida - dano;
+            this.vida -= dano;
         }
         
-        if (this.vida < 1){
-            status = Status.MORTO;
-        } 
+         
     }
     
     public Integer getCategoriaValorArmadura(){
