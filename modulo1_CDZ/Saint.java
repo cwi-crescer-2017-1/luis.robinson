@@ -1,3 +1,5 @@
+import java.security.InvalidParameterException;
+
 public class  Saint {
     private String nome = "";
     private Armadura armadura;
@@ -40,8 +42,18 @@ public class  Saint {
         return this.vida;
     }
     
-    public void perderVida(Double dano){
-        this.vida -= dano;  
+    public void perderVida(Double dano) throws InvalidParameterException{
+        if (dano < 0){            
+            throw new InvalidParameterException("Não é permitido dano negativo");
+        }
+        //Só perde vida se não estiver morto
+        if (status != Status.MORTO){
+            vida -= dano;
+        }
+        
+        if (this.vida < 1){
+            status = Status.MORTO;
+        } 
     }
     
     public Integer getCategoriaValorArmadura(){
@@ -50,6 +62,10 @@ public class  Saint {
     
     public int getQtdSentidosDespertados(){
         return this.qtdSentidosDespertados;
+    }
+    
+    public Armadura getArmadura() {
+        return this.armadura;
     }
     
 }

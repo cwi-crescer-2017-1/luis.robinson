@@ -64,7 +64,7 @@ public class SaintTest
         assertEquals(80.0,mu.getVida(),0.01);
     }  
     
-    @Test
+    @Test(expected=Exception.class)
     public void perderDanoComValorMenos1000() throws Exception {
         // Arrange
         BronzeSaint shiryu = new BronzeSaint("Shiryu", new Armadura("Dragão", Categoria.BRONZE));
@@ -97,5 +97,33 @@ public class SaintTest
         new GoldSaint("Bernardo", new Armadura("Café", Categoria.OURO));
     }
     
+    @Test
+    public void saintMorreQuandoVidaMenor1() throws Exception{
+        GoldSaint aldebaran = new GoldSaint("Aldebaran", new Armadura("Touro", Categoria.OURO));
+        aldebaran.perderVida(100.0);
+        assertEquals(Status.MORTO,aldebaran.getStatus());
+        
+    }
+    
+    @Test(expected=Exception.class)
+    public void daErroQuandoDanoNegativo() throws Exception{
+        GoldSaint aldebaran = new GoldSaint("Aldebaran", new Armadura("Touro", Categoria.OURO));
+        aldebaran.perderVida(-100.0);        
+    }
+    
+    @Test
+    public void saintNaoPodeAlterarStatusDepoisDeMorrer() throws Exception{
+        GoldSaint aldebaran = new GoldSaint("Aldebaran", new Armadura("Touro", Categoria.OURO));
+        aldebaran.perderVida(100.0);
+        assertEquals(Status.MORTO,aldebaran.getStatus());       
+    }
+    
+    @Test
+    public void naoPodePerderVidaDepoisMorto() throws Exception{
+        GoldSaint aldebaran = new GoldSaint("Aldebaran", new Armadura("Touro", Categoria.OURO));
+        aldebaran.perderVida(100.0);
+        aldebaran.perderVida(100.0);
+        assertEquals(0.00,aldebaran.getVida(),0.01);
+    }
     
 }

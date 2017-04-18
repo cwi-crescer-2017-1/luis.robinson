@@ -12,8 +12,9 @@ public class Batalha
     }
     
    public void iniciar(){
-       // int valor1 = this.primeiro.getArmadura().getCategoria().getValor();
-       if (primeiro.getCategoriaValorArmadura() >= segundo.getCategoriaValorArmadura()){
+        int valor1 = this.primeiro.getArmadura().getCategoria().getValor();
+        int valor2 = this.segundo.getArmadura().getCategoria().getValor();
+       if (valor1 >= valor2){
            segundo.perderVida(dano);
        } else {
            primeiro.perderVida(dano);
