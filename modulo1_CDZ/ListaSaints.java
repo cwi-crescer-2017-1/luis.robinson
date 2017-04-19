@@ -91,7 +91,7 @@ public class ListaSaints
         return saintMaiorVida ;
     }
     
-    public Saint getSaintMenorrVida(){
+    public Saint getSaintMenorVida(){
         if (saints.isEmpty()){
             //Athena está sem saints =/
             return null;
