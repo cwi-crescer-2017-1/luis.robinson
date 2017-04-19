@@ -1,4 +1,5 @@
 import java.security.InvalidParameterException;
+import java.util.ArrayList;
 
 public class  Saint {    
     private String nome;
@@ -9,6 +10,7 @@ public class  Saint {
     private double vida = 100.;
     protected int qtdSentidosDespertados;
     private int acumuladorProximoGolpe = 0;
+    private int contGolpes = 0;
 
     public Saint(String nome, Armadura armadura) throws Exception {
         this.nome = nome;
@@ -70,7 +72,7 @@ public class  Saint {
         return this.armadura.getConstelacao();
     }
     
-    public Golpe[] getGolpes() {
+    public ArrayList<Golpe> getGolpes() {
         return getConstelacao().getGolpes();
     }
     
@@ -78,11 +80,17 @@ public class  Saint {
         getConstelacao().adicionarGolpe(golpe);
     }
     
-    public Golpe getProximoGolpe() {
-        Golpe[] golpes = getGolpes();
-        int posicao = this.acumuladorProximoGolpe % golpes.length;
-        this.acumuladorProximoGolpe++;
-        return golpes[posicao];
+    public Golpe getProximoGolpe() throws Exception{
+        // se o saint não tem golpes
+        if(armadura.getConstelacao().getQuantGolpes() == 0){
+            throw new Exception ("Saint não aprendeu nenhum golpe");
+        }
+        // reinicia
+        if(contGolpes == armadura.getConstelacao().getQuantGolpes()){
+            contGolpes = 0;
+        }
+        
+        return getGolpes().get(contGolpes++);
     }
 
 }

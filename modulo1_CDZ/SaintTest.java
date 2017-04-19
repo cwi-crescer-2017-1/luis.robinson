@@ -117,59 +117,7 @@ public class SaintTest
     public void constelacaoInvalidaDeOuroDeveLancarErro() throws Exception {
         new GoldSaint("Bernardo", new Armadura(new Constelacao("Café"), Categoria.OURO));
     }
-
-    @Test
-    public void aprenderUmGolpe() throws Exception {
-        Saint saga = new Saint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
-        Golpe outraDimensao = new Golpe("Outra dimensão", 10);
-        saga.aprenderGolpe(new Golpe("Outra dimensão", 10));
-        Golpe[] golpes = saga.getGolpes();
-        assertEquals(outraDimensao, golpes[0]);
-        assertNull(golpes[1]);
-        assertNull(golpes[2]);
-        // TODO: assert null
-    }
-
-    @Test
-    public void aprenderDoisGolpes() throws Exception {
-        Saint saga = new Saint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
-        Golpe outraDimensao = new Golpe("Outra dimensão", 10);
-        Golpe explosaoGalatica = new Golpe("Explosão Galáctica", 11);
-        saga.aprenderGolpe(outraDimensao);
-        saga.aprenderGolpe(explosaoGalatica);
-        Golpe[] golpes = saga.getGolpes();
-        assertEquals(outraDimensao, golpes[0]);
-        assertEquals(explosaoGalatica, golpes[1]);
-        assertNull(golpes[2]);
-    }
-
-    @Test
-    public void aprenderTresGolpes() throws Exception {
-        Saint saga = new Saint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
-        Golpe outraDimensao = new Golpe("Outra dimensão", 10);
-        Golpe explosaoGalatica = new Golpe("Explosão Galáctica", 11);
-        Golpe sataImperial = new Golpe("Satã Imperial", 42);
-        saga.aprenderGolpe(outraDimensao);
-        saga.aprenderGolpe(explosaoGalatica);
-        saga.aprenderGolpe(sataImperial);
-        Golpe[] golpes = saga.getGolpes();
-        assertEquals(outraDimensao, golpes[0]);
-        assertEquals(explosaoGalatica, golpes[1]);
-        assertEquals(sataImperial, golpes[2]);
-    }
-
-    @Test(expected=ArrayIndexOutOfBoundsException.class)
-    public void aprenderQuatroGolpesLancaErro() throws Exception {
-        Saint saga = new Saint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
-        Golpe outraDimensao = new Golpe("Outra dimensão", 10);
-        Golpe explosaoGalatica = new Golpe("Explosão Galáctica", 11);
-        Golpe sataImperial = new Golpe("Satã Imperial", 42);
-        Golpe rasteira = new Golpe("Rasteira", 2);
-        saga.aprenderGolpe(outraDimensao);
-        saga.aprenderGolpe(explosaoGalatica);
-        saga.aprenderGolpe(sataImperial);
-        saga.aprenderGolpe(rasteira);
-    }
+   
 
     @Test
     public void getProximoGolpeComUm() throws Exception {

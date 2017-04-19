@@ -23,6 +23,14 @@ public class Constelacao
     public void adicionarGolpe(Golpe golpe) {
         golpes.add(golpe);        
     }
+    
+    public int getQuantGolpes(){
+        return golpes.size();
+    }
+    
+    public Golpe getGolpe(int i){
+        return golpes.get(i);
+    }
    
    
 }
