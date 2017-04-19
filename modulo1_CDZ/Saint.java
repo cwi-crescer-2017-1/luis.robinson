@@ -22,6 +22,14 @@ public class  Saint {
     public void vestirArmadura() {
         this.armaduraVestida = true;
     }
+    
+    public String getNome() {
+        return nome;
+    }
+    
+    public Categoria getCategoria(){
+        return armadura.getCategoria();
+    }
 
     // camelCase
     public boolean getArmaduraVestida() {
@@ -92,5 +100,7 @@ public class  Saint {
         
         return getGolpes().get(contGolpes++);
     }
+    
+    
 
 }
