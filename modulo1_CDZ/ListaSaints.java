@@ -123,6 +123,24 @@ public class ListaSaints
             saints.set(menor, aux);
         }
     }
+    
+    public void ordenar(TipoOrdenacao ordenacao){
+        if (ordenacao.equals(TipoOrdenacao.ASCENDENTE)){
+            ordenar();
+        } else {
+            int maior;
+            Saint aux;
+            for (int i = 0; i < saints.size(); i++) {
+                maior = i;
+                aux = saints.get(i);
+                while ((maior > 0) && (saints.get(maior - 1).getVida() < aux.getVida())) {
+                    saints.set(maior, saints.get(maior - 1));
+                    maior--;
+                }
+                saints.set(maior, aux);
+            }
+        }
+    }
    
    
 }

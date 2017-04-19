@@ -162,4 +162,148 @@ public class ListaSaintsTest
         Saint menorVida = listaSaints.getSaintMenorVida();
         assertNull(menorVida);
     }
+    
+    @Test
+    public void ordenarComListaTotalmenteDesordenada() throws Exception {
+        ListaSaints listaSaints = new ListaSaints();
+        Saint june = new Saint("June", new Armadura(new Constelacao("Camaleão"), Categoria.BRONZE));
+        Saint misty = new SilverSaint("Misty", new Armadura(new Constelacao("Lagarto"), Categoria.PRATA));
+        Saint shun = new Saint("Shun", new Armadura(new Constelacao("Andrômeda"), Categoria.BRONZE));
+        listaSaints.adicionar(shun);
+        listaSaints.adicionar(misty);
+        listaSaints.adicionar(june);
+        shun.perderVida(10);
+        misty.perderVida(20);
+        june.perderVida(30);
+        listaSaints.ordenar();
+        ArrayList<Saint> resultado = listaSaints.getSaints();
+        assertEquals(june, resultado.get(0));
+        assertEquals(misty, resultado.get(1));
+        assertEquals(shun, resultado.get(2));
+    }
+    
+    @Test
+    public void ordenarComListaTotalmenteOrdenada() throws Exception {
+        ListaSaints listaSaints = new ListaSaints();
+        Saint june = new Saint("June", new Armadura(new Constelacao("Camaleão"), Categoria.BRONZE));
+        Saint misty = new SilverSaint("Misty", new Armadura(new Constelacao("Lagarto"), Categoria.PRATA));
+        Saint shun = new Saint("Shun", new Armadura(new Constelacao("Andrômeda"), Categoria.BRONZE));
+        listaSaints.adicionar(shun);
+        listaSaints.adicionar(misty);
+        listaSaints.adicionar(june);
+        shun.perderVida(30);
+        misty.perderVida(20);
+        june.perderVida(10);
+        listaSaints.ordenar();
+        ArrayList<Saint> resultado = listaSaints.getSaints();
+        assertEquals(shun, resultado.get(0));
+        assertEquals(misty, resultado.get(1));
+        assertEquals(june, resultado.get(2));
+    }
+    
+    @Test
+    public void ordenarComListaVazia() throws Exception {
+        ListaSaints listaSaints = new ListaSaints();
+        listaSaints.ordenar();
+        ArrayList<Saint> resultado = listaSaints.getSaints();
+        assertEquals(new ArrayList<Saint>(), resultado);
+    }
+    
+    @Test
+    public void ordenarComListaApenasUm() throws Exception {
+        ListaSaints listaSaints = new ListaSaints();
+        Saint june = new Saint("June", new Armadura(new Constelacao("Camaleão"), Categoria.BRONZE));
+        Saint misty = new SilverSaint("Misty", new Armadura(new Constelacao("Lagarto"), Categoria.PRATA));
+        Saint shun = new Saint("Shun", new Armadura(new Constelacao("Andrômeda"), Categoria.BRONZE));
+        listaSaints.adicionar(shun);
+        shun.perderVida(30);
+        listaSaints.ordenar();
+        ArrayList<Saint> resultado = listaSaints.getSaints();
+        assertEquals(shun, resultado.get(0));
+        assertEquals(1, resultado.size());
+    }
+    
+    @Test
+    public void ordenarComListaDeValoresIguais() throws Exception {
+        ListaSaints listaSaints = new ListaSaints();
+        Saint june = new Saint("June", new Armadura(new Constelacao("Camaleão"), Categoria.BRONZE));
+        Saint misty = new SilverSaint("Misty", new Armadura(new Constelacao("Lagarto"), Categoria.PRATA));
+        Saint shun = new Saint("Shun", new Armadura(new Constelacao("Andrômeda"), Categoria.BRONZE));
+        listaSaints.adicionar(shun);
+        listaSaints.adicionar(misty);
+        listaSaints.adicionar(june);
+        listaSaints.ordenar();
+        ArrayList<Saint> resultado = listaSaints.getSaints();
+        assertEquals(shun, resultado.get(0));
+        assertEquals(misty, resultado.get(1));
+        assertEquals(june, resultado.get(2));
+    }
+    
+    @Test
+    public void ordenarDescendenteComListaApenasUm() throws Exception {
+        ListaSaints listaSaints = new ListaSaints();
+        Saint june = new Saint("June", new Armadura(new Constelacao("Camaleão"), Categoria.BRONZE));
+        Saint misty = new SilverSaint("Misty", new Armadura(new Constelacao("Lagarto"), Categoria.PRATA));
+        Saint shun = new Saint("Shun", new Armadura(new Constelacao("Andrômeda"), Categoria.BRONZE));
+        listaSaints.adicionar(shun);
+        shun.perderVida(30);
+        listaSaints.ordenar(TipoOrdenacao.DESCENDENTE);
+        ArrayList<Saint> resultado = listaSaints.getSaints();
+        assertEquals(shun, resultado.get(0));
+        assertEquals(1, resultado.size());
+    }
+    
+    @Test
+    public void ordenarDescendenteComListaDeValoresIguais() throws Exception {
+        ListaSaints listaSaints = new ListaSaints();
+        Saint june = new Saint("June", new Armadura(new Constelacao("Camaleão"), Categoria.BRONZE));
+        Saint misty = new SilverSaint("Misty", new Armadura(new Constelacao("Lagarto"), Categoria.PRATA));
+        Saint shun = new Saint("Shun", new Armadura(new Constelacao("Andrômeda"), Categoria.BRONZE));
+        listaSaints.adicionar(shun);
+        listaSaints.adicionar(misty);
+        listaSaints.adicionar(june);
+        listaSaints.ordenar(TipoOrdenacao.DESCENDENTE);
+        ArrayList<Saint> resultado = listaSaints.getSaints();
+        assertEquals(shun, resultado.get(0));
+        assertEquals(misty, resultado.get(1));
+        assertEquals(june, resultado.get(2));
+    }
+    
+    @Test
+    public void ordenarDescendenteComListaTotalmenteDesordenada() throws Exception {
+        ListaSaints listaSaints = new ListaSaints();
+        Saint june = new Saint("June", new Armadura(new Constelacao("Camaleão"), Categoria.BRONZE));
+        Saint misty = new SilverSaint("Misty", new Armadura(new Constelacao("Lagarto"), Categoria.PRATA));
+        Saint shun = new Saint("Shun", new Armadura(new Constelacao("Andrômeda"), Categoria.BRONZE));
+        listaSaints.adicionar(shun);
+        listaSaints.adicionar(misty);
+        listaSaints.adicionar(june);
+        shun.perderVida(10);
+        misty.perderVida(20);
+        june.perderVida(30);
+        listaSaints.ordenar(TipoOrdenacao.DESCENDENTE);
+        ArrayList<Saint> resultado = listaSaints.getSaints();
+        assertEquals(june, resultado.get(2));
+        assertEquals(misty, resultado.get(1));
+        assertEquals(shun, resultado.get(0));
+    }
+    
+    @Test
+    public void ordenarDescendenteComListaTotalmenteOrdenada() throws Exception {
+        ListaSaints listaSaints = new ListaSaints();
+        Saint june = new Saint("June", new Armadura(new Constelacao("Camaleão"), Categoria.BRONZE));
+        Saint misty = new SilverSaint("Misty", new Armadura(new Constelacao("Lagarto"), Categoria.PRATA));
+        Saint shun = new Saint("Shun", new Armadura(new Constelacao("Andrômeda"), Categoria.BRONZE));
+        listaSaints.adicionar(shun);
+        listaSaints.adicionar(misty);
+        listaSaints.adicionar(june);
+        shun.perderVida(30);
+        misty.perderVida(20);
+        june.perderVida(10);
+        listaSaints.ordenar(TipoOrdenacao.DESCENDENTE);
+        ArrayList<Saint> resultado = listaSaints.getSaints();
+        assertEquals(shun, resultado.get(2));
+        assertEquals(misty, resultado.get(1));
+        assertEquals(june, resultado.get(0));
+    }
 }
