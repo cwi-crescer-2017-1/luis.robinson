@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ListaSaints
 {
@@ -28,33 +29,48 @@ public class ListaSaints
    }
    
    public Saint buscarPorNome(String nome){
-       for (Saint saint : saints){
+       /* for (Saint saint : saints){
            if( saint.getNome().equals(nome)){
                return saint;
             }
         }
         // se percorre o for each e não tem saints
-        return null;
+        return null; */
+        
+        //java 8, lambda
+        return this.saints.stream()
+            .filter(s -> s.getNome().equals(nome))
+            .findFirst()
+            .orElse(null);
     }
     
     public ArrayList<Saint> buscarPorCategoria(Categoria categoria){
-        ArrayList<Saint> lista = new ArrayList<>();
-        for (Saint saint : saints){
+        //ArrayList<Saint> lista = new ArrayList<>();
+        /*for (Saint saint : saints){
            if( saint.getCategoria().equals(categoria)){
                lista.add(saint);
             }
         }
-        return lista;
+        return lista; */
+        return (ArrayList<Saint>)this.saints.stream()
+            .filter(s -> s.getArmadura().getCategoria().equals(categoria))
+            .collect(Collectors.toList());
+        
+        
     }
     
     public ArrayList<Saint> buscarPorStatus(Status status){
-        ArrayList<Saint> lista = new ArrayList<>();
+        /*ArrayList<Saint> lista = new ArrayList<>();
         for (Saint saint : this.saints){
            if( saint.getStatus().equals(status)){
                lista.add(saint);
             }
         }
-        return lista;
+        return lista;*/
+         return (ArrayList<Saint>)this.saints.stream()
+            .filter(s -> s.getStatus().equals(status))
+            .collect(Collectors.toList());
+        
     }
     
     public Saint getSaintMaiorVida(){
