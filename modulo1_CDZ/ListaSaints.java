@@ -37,20 +37,20 @@ public class ListaSaints
         return null;
     }
     
-    public List<Saint> buscarPorCategoria(Categoria categoria){
-        List<Saint> lista = new ArrayList<>();
+    public ArrayList<Saint> buscarPorCategoria(Categoria categoria){
+        ArrayList<Saint> lista = new ArrayList<>();
         for (Saint saint : saints){
-           if( saint.getCategoria() == categoria){
+           if( saint.getCategoria().equals(categoria)){
                lista.add(saint);
             }
         }
         return lista;
     }
     
-    public List<Saint> buscarPorStatus(Status status){
-        List<Saint> lista = new ArrayList<>();
-        for (Saint saint : saints){
-           if( saint.getStatus() == status){
+    public ArrayList<Saint> buscarPorStatus(Status status){
+        ArrayList<Saint> lista = new ArrayList<>();
+        for (Saint saint : this.saints){
+           if( saint.getStatus().equals(status)){
                lista.add(saint);
             }
         }
