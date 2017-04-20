@@ -141,6 +141,43 @@ public class ListaSaints
             }
         }
     }
+    
+    public ListaSaints unir(ListaSaints  listaSaintsUnir){       
+        // criar nova lista para retornar
+        ListaSaints novaListaSaintsUnir = new ListaSaints();
+        for (Saint saint: saints){                            
+            novaListaSaintsUnir.adicionar(saint);                           
+        }
+        
+        for (Saint saint: listaSaintsUnir.getSaints()){                            
+            novaListaSaintsUnir.adicionar(saint);                           
+        }
+        
+        return novaListaSaintsUnir;
+    }
+    public ListaSaints diff(ListaSaints  listaSaintsDiff){       
+        // criar nova lista para retornar
+        ListaSaints novaListaSaintsDiff = new ListaSaints();
+        for (Saint saint: saints){            
+                if (!listaSaintsDiff.getSaints().contains(saints)){
+                    novaListaSaintsDiff.adicionar(saint);
+                }            
+        }
+        return novaListaSaintsDiff;
+    }
+    
+    public ListaSaints intersec(ListaSaints  listaSaintsIntersec){       
+        // criar nova lista para retornar
+        ListaSaints novaListaSaintIntersec = new ListaSaints();
+        for (Saint saint: saints){            
+                if (listaSaintsIntersec.getSaints().contains(saints)){
+                    novaListaSaintIntersec.adicionar(saint);
+                }            
+        }
+        return novaListaSaintIntersec;
+    }
+    
+    
    
    
 }
