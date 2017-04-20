@@ -196,7 +196,7 @@ public class ListaSaints
                 csv.append(saint.getGenero());
                 csv.append(",");
                 csv.append(saint.getArmaduraVestida());
-                csv.append(" /n ");
+                csv.append("\n");                
         }
         return csv.toString();
     }
