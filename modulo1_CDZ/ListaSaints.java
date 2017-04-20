@@ -109,37 +109,38 @@ public class ListaSaints
         return saintMenorVida ;
     }
     
-    public void ordenar() {
-        // Selection Sort 
-        int menor;
-        Saint aux;
-        for (int i = 0; i < saints.size(); i++) {
-            menor = i;
-            aux = saints.get(i);
-            while ((menor > 0) && (saints.get(menor - 1).getVida() > aux.getVida())) {
-                saints.set(menor, saints.get(menor - 1));
-                menor--;
-            }
-            saints.set(menor, aux);
-        }
-    }
-    
-    public void ordenar(TipoOrdenacao ordenacao){
-        if (ordenacao.equals(TipoOrdenacao.ASCENDENTE)){
-            ordenar();
-        } else {
-            int maior;
-            Saint aux;
-            for (int i = 0; i < saints.size(); i++) {
-                maior = i;
-                aux = saints.get(i);
-                while ((maior > 0) && (saints.get(maior - 1).getVida() < aux.getVida())) {
-                    saints.set(maior, saints.get(maior - 1));
-                    maior--;
+    public void ordenar(TipoOrdenacao tipoOrdenacao) {
+        /*
+         * BubbleSort
+         * Complexidade: O(n^2)
+         * 
+         * 
+         *     [4] [3] [60] [17] [10]
+         * i0: [3] [4] [17] [10] [60]
+         * i1: [3] [4] [10] [17] [60]
+         */
+        boolean ascendente = tipoOrdenacao == TipoOrdenacao.ASCENDENTE;
+        boolean posicoesSendoTrocadas;
+        do {
+            posicoesSendoTrocadas = false;
+            for (int i = 0; i < this.saints.size() - 1; i++) {
+                Saint atual = this.saints.get(i);
+                Saint proximo = this.saints.get(i + 1);
+                boolean precisaTrocar = 
+                    ascendente ? atual.getVida() > proximo.getVida() :
+                    atual.getVida() < proximo.getVida();
+
+                if (precisaTrocar) {
+                    this.saints.set(i, proximo);
+                    this.saints.set(i + 1, atual);
+                    posicoesSendoTrocadas = true;
                 }
-                saints.set(maior, aux);
             }
-        }
+        } while (posicoesSendoTrocadas); 
+    }
+
+    public void ordenar() {
+        this.ordenar(TipoOrdenacao.ASCENDENTE);
     }   
     
     
