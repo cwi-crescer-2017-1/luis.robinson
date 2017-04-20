@@ -307,4 +307,22 @@ public class ListaSaintsTest
         assertEquals(june, resultado.get(0));
     }
     
+    @Test
+    public void getCSVRetornaElementosCorretamente() throws Exception{
+    ListaSaints lista = new ListaSaints();
+    Saint june = new Saint("June", new Armadura(new Constelacao("Camaleão"), Categoria.BRONZE));
+    june.setGenero(Genero.FEMININO);
+    june.perderVida(15.5);
+    lista.adicionar(june);
+
+    Saint dohko = new Saint("Dohko", new Armadura(new Constelacao(""), Categoria.OURO));
+    dohko.perderVida(90);
+    dohko.vestirArmadura();
+    lista.adicionar(dohko);
+
+    String csv = lista.getCSV();
+    assertEquals("June,84.5,Camaleão,BRONZE,VIVO,FEMININO,false" + "\n" +
+                 "Dohko,10.0,,OURO,VIVO,NAO_INFORMADO,true",csv);
+    }
+    
 }
