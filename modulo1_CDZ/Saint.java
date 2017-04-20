@@ -100,6 +100,29 @@ public class  Saint {
         
         return getGolpes().get(contGolpes++);
     }
+    public String getCSV() {
+        
+        // Interpolação de Strings: return `${nome},${vida},${status}`;
+        return String.format(
+            "%s,%s,%s,%s,%s,%s,%s",
+            this.nome,
+            this.vida,
+            this.getConstelacao().getNome(),
+            this.armadura.getCategoria(),
+            this.status,
+            this.genero,
+            this.armaduraVestida
+        );
+        
+        /*return  
+            this.nome + "," +
+            this.vida + "," +
+            this.getConstelacao().getNome() + "," +
+            this.armadura.getCategoria() + "," +
+            this.status + "," +
+            this.genero + "," +
+            this.armaduraVestida;*/
+    }
     
     
 
