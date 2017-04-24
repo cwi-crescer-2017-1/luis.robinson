@@ -12,7 +12,7 @@ public abstract class  Saint {
     private int acumuladorProximoGolpe = 0;
     private int contGolpes = 0;
 
-    public Saint(String nome, Armadura armadura) throws Exception {
+    protected Saint(String nome, Armadura armadura) throws Exception {
         this.nome = nome;
         this.armadura = armadura;
         /*int valorCategoria = this.armadura.getCategoria().getValor();
@@ -123,6 +123,8 @@ public abstract class  Saint {
             this.genero + "," +
             this.armaduraVestida;*/
     }
+    
+    
     
     
 
