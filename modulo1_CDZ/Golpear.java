@@ -1,30 +1,28 @@
 
 public class Golpear implements Movimento
 {
-    Golpe golpe;
-    Saint golpeador ;
-    Saint golpeado;
-    int valorArmadura;
-    int valorFatorDano;
-    //construtor
-    public Golpear(Saint golpeador ,Saint golpeado) throws Exception{
-        this.golpeador  = golpeador ;
-        this.golpeado  = golpeado ;
-        // pego próximo golpe
-        this.golpe = golpeador.getProximoGolpe();
+    private Saint golpeador, golpeado;
+    
+    public Golpear(Saint golpeador, Saint golpeado) {
+        this.golpeador = golpeador;
+        this.golpeado = golpeado;
     }
     
     public void executar() {
-        if (golpeador .getArmaduraVestida()){
-            valorArmadura = golpeador .getArmadura().getCategoria().getValor();
-            //pego o valor da armadura e multiplico pelo dano.
-            valorFatorDano = golpe.getFatorDano()*(valorArmadura +1);
-            golpe.setFatorDano(valorFatorDano);
-        } 
+        Golpe golpe = this.golpeador.getProximoGolpe();
+        int danoCalculado = golpe.getFatorDano();
         
-        golpeado.perderVida(golpe.getFatorDano());
-
-
+        if (this.golpeador.getArmaduraVestida()) {
+            danoCalculado *= 1 + this.golpeador.getArmadura().getCategoria().getValor();
+        }
+        
+        this.golpeado.perderVida(danoCalculado);
+    }
+    
+    public boolean equals(Object outro) {
+        Golpear outroGolpear = (Golpear)outro;
+        return this.golpeador.equals(outroGolpear.golpeador)
+            && this.golpeado.equals(outroGolpear.golpeado);
     }
 
 }

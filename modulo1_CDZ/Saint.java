@@ -89,17 +89,11 @@ public abstract class  Saint {
         getConstelacao().adicionarGolpe(golpe);
     }
     
-    public Golpe getProximoGolpe() throws Exception{
-        // se o saint não tem golpes
-        if(armadura.getConstelacao().getQuantGolpes() == 0){
-            throw new Exception ("Saint não aprendeu nenhum golpe");
-        }
-        // reinicia
-        if(contGolpes == armadura.getConstelacao().getQuantGolpes()){
-            contGolpes = 0;
-        }
-        
-        return getGolpes().get(contGolpes++);
+    public Golpe getProximoGolpe() {
+        ArrayList<Golpe> golpes = getGolpes();
+        int posicao = this.acumuladorProximoGolpe % golpes.size();
+        this.acumuladorProximoGolpe++;
+        return golpes.get(posicao);
     }
     public String getCSV() {
         
@@ -135,6 +129,13 @@ public abstract class  Saint {
         return movimentos.get(posicao);
         
     }
+    
+    // "agendando" execução do golpe no saint passado por parâmetro
+    // o golpe de fato só será executado na batalha.
+    public void golpear(Saint golpeado) {
+        this.adicionarMovimento(new Golpear(this, golpeado));
+    }
+
     
     
     
