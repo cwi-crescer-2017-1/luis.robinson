@@ -188,4 +188,12 @@ public class SaintTest
         hyoga.getProximoMovimento();
         assertEquals(vestirArmadura, hyoga.getProximoMovimento());
     }
+
+	@Test
+	public void getQtdSaintsPosTestes() throws Exception{
+        int valor = Saint.getQtdSaints();
+		Saint aldebaran = new GoldSaint("Aldebaran","Touro");
+		int valor1 = Saint.getQtdSaints();
+		assertEquals(valor+1,valor1);
+	}
 }
