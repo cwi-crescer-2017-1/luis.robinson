@@ -10,16 +10,23 @@ public class VestirArmaduraTest
 {
     @Test
     public void vestirArmaduraNoMetodoExecutarDeixaVestida() throws Exception {
-        Saint shaina = new SilverSaint("Shain","Serpente");
+        Saint shaina = new SilverSaint("Shaina","Serpente");
         Movimento movimento = new VestirArmadura(shaina);
         movimento.executar();
-        assertEquals(true,shaina.getArmaduraVestida());
+        assertTrue(shaina.getArmaduraVestida());
     }
     
     @Test
     public void naoVestirArmaduraNoMetodoExecutarDeixaNaoVestida() throws Exception {
-        Saint shaina = new SilverSaint("Shain","Serpente");
+        Saint shaina = new SilverSaint("Shaina","Serpente");
         Movimento movimento = new VestirArmadura(shaina);        
-        assertEquals(false,shaina.getArmaduraVestida());
+        assertFalse(shaina.getArmaduraVestida());
+    }
+    
+    @Test(expected=NullPointerException.class)
+    public void vestirArmaduraComSaintNull() throws Exception {
+        Saint shaina = null;
+        Movimento movimento = new VestirArmadura(shaina);
+        movimento.executar();        
     }
 }
