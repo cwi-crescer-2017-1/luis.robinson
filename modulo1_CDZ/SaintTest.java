@@ -196,4 +196,12 @@ public class SaintTest
 		int valor1 = Saint.getQtdSaints();
 		assertEquals(valor+1,valor1);
 	}
+	
+	@Test
+	public void getNewSaintsId() throws Exception{
+        int valorId = Saint.getQtdSaints();
+		Saint aldebaran = new GoldSaint("Aldebaran","Touro");
+		int id = aldebaran.getId();		
+		assertEquals(id,valorId + 1);
+	}
 }

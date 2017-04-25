@@ -2,6 +2,7 @@ import java.security.InvalidParameterException;
 import java.util.ArrayList;
 
 public abstract class  Saint {    
+    private static int id = 0;
     private String nome;
     private Armadura armadura;
     private boolean armaduraVestida;
@@ -19,9 +20,15 @@ public abstract class  Saint {
         this.armadura = armadura;
 		//a variavel ´é da classe
 		Saint.qtdSaints++;
+		Saint.id++;
         /*int valorCategoria = this.armadura.getCategoria().getValor();
         this.qtdSentidosDespertados += valorCategoria;*/
     }
+    
+    public static int getId(){
+		return Saint.id;
+    }
+    
 
     public static int getQtdSaints(){
 		return Saint.qtdSaints;
