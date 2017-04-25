@@ -8,7 +8,14 @@ import java.security.InvalidParameterException;
 
 
 public class SaintTest
-{@Test
+{
+    @After
+    public void tearDown(){
+        // java colletor
+        System.gc();
+    }
+    
+    @Test
     public void vestirArmaduraDeixaArmaduraVestida() throws Exception {
         // AAA
         // 1. Arrange - Montagem dos dados de teste
@@ -189,19 +196,33 @@ public class SaintTest
         assertEquals(vestirArmadura, hyoga.getProximoMovimento());
     }
 
-	@Test
-	public void getQtdSaintsPosTestes() throws Exception{
-        int valor = Saint.getQtdSaints();
-		Saint aldebaran = new GoldSaint("Aldebaran","Touro");
-		int valor1 = Saint.getQtdSaints();
-		assertEquals(valor+1,valor1);
-	}
-	
-	@Test
-	public void getNewSaintsId() throws Exception{
+    @Test
+    public void criarUmSaintQtdSaintsDeveTerUmAMais() throws Exception {
+        Saint shun = new BronzeSaint("Shun", "Andrômeda");
+        assertEquals(1, Saint.getQtdSaints());
+    }
+
+    @Test
+    public void criarDoisSaintQtdSaintsDeveTerDoisAMais() throws Exception {
+        new BronzeSaint("Shun", "Andrômeda");
+        new SilverSaint("Marin", "Águia");
+        assertEquals(2, Saint.getQtdSaints());
+    }
+
+    @Test
+    public void criarDuzentosSaintsQtdSaintsDeveTerDuzentosAMais() throws Exception {
+        final int quantidade = 200;
+        for (int i = 0; i < quantidade; i++) {
+            new BronzeSaint("Bronze " + i, "Constelação " + i);
+        }
+        assertEquals(quantidade, Saint.getQtdSaints());
+    }
+    
+    @Test
+    public void getNewSaintsId() throws Exception{
         int valorId = Saint.getQtdSaints();
-		Saint aldebaran = new GoldSaint("Aldebaran","Touro");
-		int id = aldebaran.getId();		
-		assertEquals(id,valorId + 1);
-	}
+        Saint aldebaran = new GoldSaint("Aldebaran","Touro");
+        int id = aldebaran.getId();     
+        assertEquals(id,valorId + 1);
+    }
 }

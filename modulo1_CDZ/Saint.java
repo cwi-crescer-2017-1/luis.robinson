@@ -2,7 +2,7 @@ import java.security.InvalidParameterException;
 import java.util.ArrayList;
 
 public abstract class  Saint {    
-    private static int id = 0;
+    private int id = 0;
     private String nome;
     private Armadura armadura;
     private boolean armaduraVestida;
@@ -18,20 +18,20 @@ public abstract class  Saint {
     protected Saint(String nome, Armadura armadura) throws Exception {
         this.nome = nome;
         this.armadura = armadura;
-		//a variavel ´é da classe
-		Saint.qtdSaints++;
-		Saint.id++;
+        //a variavel ´é da classe
+        Saint.qtdSaints++;
+        id = Saint.getQtdSaints();
         /*int valorCategoria = this.armadura.getCategoria().getValor();
         this.qtdSentidosDespertados += valorCategoria;*/
     }
     
-    public static int getId(){
-		return Saint.id;
+    public int getId(){
+        return id;
     }
     
 
     public static int getQtdSaints(){
-		return Saint.qtdSaints;
+        return Saint.qtdSaints;
     }
 
     public void vestirArmadura() {
@@ -148,6 +148,10 @@ public abstract class  Saint {
     // o golpe de fato só será executado na batalha.
     public void golpear(Saint golpeado) {
         this.adicionarMovimento(new Golpear(this, golpeado));
+    }
+    
+    protected void finalize() throws Throwable{
+        Saint.qtdSaints--;
     }
 
     
