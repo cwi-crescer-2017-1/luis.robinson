@@ -13,27 +13,28 @@ public abstract class  Saint {
     private int acumuladorProximoGolpe = 0;
     private int contGolpes = 0,acumuladorProximoMovimento = 0;
     private ArrayList<Movimento> movimentos = new ArrayList<>();
-    private static int qtdSaints = 0;
+    private static int qtdSaints = 0,acumuladorQtdSaints = 0;;
 
     protected Saint(String nome, Armadura armadura) throws Exception {
         this.nome = nome;
         this.armadura = armadura;
-        //a variavel ´é da classe
+        this.id = ++Saint.acumuladorQtdSaints;
         Saint.qtdSaints++;
-        id = Saint.getQtdSaints();
         /*int valorCategoria = this.armadura.getCategoria().getValor();
         this.qtdSentidosDespertados += valorCategoria;*/
     }
     
     public int getId(){
         return id;
-    }
-    
+    }    
 
-    public static int getQtdSaints(){
+    public static int getQtdSaints() {
         return Saint.qtdSaints;
     }
-
+    
+    public static int getAcumuladorQtdSaints() {
+        return Saint.acumuladorQtdSaints;
+    }
     public void vestirArmadura() {
         this.armaduraVestida = true;
     }
