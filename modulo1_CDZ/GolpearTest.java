@@ -91,13 +91,11 @@ public class GolpearTest
         assertEquals(90,kanon.getVida(), 0.01);
     }
     
-    @Test(expected=Exception.class)
+    @Test(expected=ArithmeticException.class)
     public void naoGolpear() throws Exception {
-        Saint saga = new GoldSaint("Saga", "Gêmeos");
-        Saint kanon = new GoldSaint("Kanon", "Gêmeos");
-        Golpe golpe = new Golpe("Explosão Galática", 10);        
-        //saga.aprenderGolpe(golpe);
-        Movimento golpear = new Golpear(saga, kanon);
+        Saint seiya = new BronzeSaint("Seiya", "Pégaso");
+        Saint aldebaran = new GoldSaint("Aldebaran", "Touro");
+        Movimento golpear = new Golpear(aldebaran, seiya);
         golpear.executar();
     }
 }
