@@ -33,6 +33,7 @@ insert
   into produto (nome_curto,nome_descricao,data_descricao,local_estoque,quantidade,preco) 
   values ('teste1','teste grande 1','28/04/2017','frente da loja',1.0000,15.90);
 
+  -- getDate();
 insert 
   into produto (nome_curto,nome_descricao,data_descricao,local_estoque,quantidade,preco) 
   values ('teste2','teste grande 2','30/04/2017','fundo da loja',3.0000,22.87);
