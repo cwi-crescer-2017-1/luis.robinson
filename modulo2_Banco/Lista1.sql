@@ -39,3 +39,8 @@ insert
   values ('teste2','teste grande 2','30/04/2017','fundo da loja',3.0000,22.87);
 
   select * from produto
+  -- select CONVERT (DATE,'27-05-1992',103)
+
+  Select Nome as [Nome da Cidade],
+         UF as UnidadeFederativa
+		 from cidade
