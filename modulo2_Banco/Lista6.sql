@@ -31,8 +31,27 @@ Select Top(1) Count(cli.IDCidade) as Quantidade,
   group by cid.UF
   order by Quantidade asc ) as tabDesc
 
-  -- 4
+  -- 4  
+  insert into produto (nome,DataCadastro,PrecoCusto,PrecoVenda,Situacao)
+   values ('Galocha Maragato',GETDATE(),35.67,77.95,'A')
 
+  -- 5
+  Select Distinct(prod.Nome) as prodNome 
+	from produto prod
+   where not exists (Select 1
+					  from pedido ped
+					  inner join pedidoitem pedi on pedi.IDPedido = ped.IDPedido					  
+					  where pedi.IDProduto = prod.IDProduto )
 
+ -- 6
+ 
+Select top(30) pedi.Quantidade * (prod.PrecoVenda  - prod.PrecoCusto) as lucro, prod.nome
+from pedido ped
+inner join PedidoItem pedi on pedi.IDPedido = ped.IDPedido
+inner join Produto prod on prod.IDProduto = pedi.IDProduto
+where datepart(year, ped.Datapedido) = 2016 
+order by lucro desc
+  
+  
 
 
