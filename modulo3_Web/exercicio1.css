@@ -1,0 +1,13 @@
+body{
+  background-color:blue;   
+}
+
+strong + strong {
+    font-size: 44px;
+}
+
+ul {
+    border-width: 100px;
+    color : brown;
+   border-color: whitesmoke; 
+}
