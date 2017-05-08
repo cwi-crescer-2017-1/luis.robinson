@@ -1,0 +1,26 @@
+div {
+height: 300px;
+width: 300px;
+background: red;
+margin: 20px 30px 18px 5px;
+display: inline-block;
+
+}
+
+h1{
+  padding: 10px 5px 15px 20px
+}
+
+body{
+  margin: 0;
+}
+.container{
+  font-size: 0;
+  width: 500px;
+  margin: 18px auto;
+}
+.col {
+  font-size: initial;
+  background: red;
+
+}
