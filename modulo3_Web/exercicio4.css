@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    background-color: #fafafa;
+    font-family: 'Open Sans', sans-serif;
+}
+.container{
+  width: 100vw;
+  height: 100vh;
+}
+.barra {
+  background-color: #c4170c;
+}
+.principal {
+  font-size: 200%;
+  color: #fff;
+  text-align:center;
+  font-weight: bold;
+  padding: 1.3% 0%;
+}
+.noticiaEsq{
+    width: 50%;
+    color: red;
+    float: left;
+    padding: 50px 90px;
+}
+
+.noticiaDir{
+    width: 50%;
+    color: red;
+    float: right;
+    padding: 50px 90px;
+}
