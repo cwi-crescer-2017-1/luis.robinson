@@ -4,9 +4,24 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
 }
-.container >p{
+nav{
+  color: white;
+  position: relative;
+  width: 60%;
+  background: rgba(204, 202, 203, .5);
+  height: 8%;
+  left: 50%;
+  top: 30%;
+  transform: translate(-50%, -50%);
+  border-radius: 15px;
+  border: 2px gray solid;
+}
+.menu {
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+.menu-div{
+  background: white;
 }
