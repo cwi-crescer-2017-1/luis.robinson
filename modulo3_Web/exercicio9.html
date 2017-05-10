@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bootstrap Formulário</title>
+    <meta charset="utf-8"/>
+    <link href="exercicio9.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Formulário de cadastro.</h1>
+      <hr>
+      <form>
+        <div class="row">
+        <div class="form-group col-md-6">
+          <label for="formGroupExampleInput">Nome Completo</label>
+          <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Ex: Luís Felipe">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="formGroupExampleInput">Email</label>
+          <input type="email" class="form-control" id="formGroupExampleInput" placeholder="Ex: luisfelipe@lalalal.com">
+        </div>
+        </div>
+        <div class="row">
+        <div class="form-group col-md-6">
+          <label for="formGroupExampleInput">Data de Nascimento</label>
+          <input type="date" class="form-control" >
+        </div>
+        <div class="form-group col-md-6">
+          <label for="formGroupExampleInput">Estado</label>
+          <select class="form-control">
+            <option>Rio Grande do Sul</option>
+            <option>Bahia</option>
+          </select>
+        </div>
+        </div>
+        <div class="row">
+        <div class="form-group col-md-6">
+            <label for="formGroupExampleInput">Cidade</label>
+            <input type="text" class="form-control" >
+          </div>
+          <div class="form-group col-md-6">
+            <label for="formGroupExampleInput">Sexo</label>
+            <select  class="form-control">
+              <option>Masculino</option>
+              <option>Feminino</option>
+            </select>
+          </div>
+        </div>
+          <div class="row">
+            <!--div class="col-md-10"></div -->
+            <div class="col-md-12 text-right">
+              <button type="submit" class="btn btn-primary">Enviar</button>
+              <button type="reset" class="btn btn-secundary">Limpar</button>
+            </div>
+         </div>
+      </form>
+    </div>
+
+
+  </body>
+
+</html>
