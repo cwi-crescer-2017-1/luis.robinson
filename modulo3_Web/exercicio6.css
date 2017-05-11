@@ -1,10 +1,18 @@
-body {
-	margin: 0;
-  background-image: url("https://assets.vg247.it/current//2016/02/street-fighter-5-guida-mosse-trucchi.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
+* {
+  box-sizing: border-box;
 }
-nav{
+
+body {
+  font-size:0;
+  margin: 0;
+  height: 100vh;
+  background-image: url("https://assets.vg247.it/current//2016/02/street-fighter-5-guida-mosse-trucchi.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size:cover;
+  font-family: 'Open Sans', sans-serif;
+}
+nav {
   color: white;
   position: relative;
   width: 60%;
@@ -16,12 +24,54 @@ nav{
   border-radius: 15px;
   border: 2px gray solid;
 }
-.menu {
-  position: absolute;
-  top: 40%;
+.container {
+  font-size:initial;
+  width: 50%;
+  height: 100%;
+  position: relative;
   left: 50%;
-  transform: translate(-50%, -50%);
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
 }
-.menu-div{
-  background: white;
+
+.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0 29px;
+}
+.menu .menu-item {
+  line-height: 50px;
+  padding: 0 10px;
+  float: left;
+  font-weight: 700;
+}
+.menu .menu-item a {
+  text-decoration: none;
+  color: white;
+}
+.header {
+  height: 10%;
+  background: #414141;
+  top: 33%;
+}
+.header > span {
+  color: #C0BDBD;
+  line-height: 65px;
+  font-size: 28px;
+  margin-left: 20px;
+  font-weight: 700;
+}
+.content {
+  position: relative;
+  background: #C7C7C7;
+  width: 100%;
+  top: 33%;
+}
+.section{
+  padding: 10px;
+  border-bottom: 2px #717070 solid;
+  margin: 0 10px 10px 10px;
+}
+.section:last-child {
+  border: none;
 }
