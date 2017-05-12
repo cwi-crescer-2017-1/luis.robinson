@@ -39,3 +39,12 @@ function imprime(instrutor, funcao){
 };
 
 //imprime(instrutor,funcInstrutor);
+
+function somar (a){
+  return function somar (b) {
+    return a+b;
+  }
+}
+//somar(3);
+//somar(4);
+console.log("somar",somar(3)(4));
