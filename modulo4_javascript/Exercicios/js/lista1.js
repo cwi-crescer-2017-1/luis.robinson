@@ -1,6 +1,6 @@
 function daisyGame (number){
   return number %2 == 0 ? 'Love me not' : 'Love me!'
-  //  return 'Love me${ numero %2 !== 0 ? '' : ' not'}'
+  //  return `Love me${ numero %2 !== 0 ? '' : ' not'}`
 };
 
 //daisyGame(3);
@@ -8,11 +8,12 @@ function daisyGame (number){
 
 function maiorTexto(stringao){
   var maior = "UAU";
-  for (var i = 0;i < stringao.length; i++){
+  for (let i = 0;i < stringao.length; i++){
     if (stringao[i].length > maior.length){
       maior = stringao[i];
     }
   }
+  // let morre no bloco.
   console.log("The big one is:",maior);
 }
 
@@ -39,7 +40,7 @@ function imprime(instrutor, funcao){
 //imprime(instrutor,funcInstrutor);
 
 function somar (a){
-  return function somar (b) {
+  return function(b) {
     return a+b;
   }
 };
@@ -48,10 +49,28 @@ function somar (a){
 //console.log("somar",somar(3)(4));
 
 function fiboSum (number) {
-
-   return number <= 1 ? number
-        // viva lá recursividad.
-        : fiboSum(number - 1) + fiboSum(number - 2);
+  if (number === 1){
+    return 1;
+  }
+   return fibonacci(number) + fiboSum(number - 1);
 };
 
 console.log("somar",fiboSum(10));
+
+function fibonacci(n){
+  if(n === 1 || n === 2) {
+    return 1;
+  }
+  return fibonacci(n-1) + fibonacci(n-2);
+};
+
+
+function queroCafe(mascada,precos){
+  let dentroDoOrcamento = [];
+  precos.forEach(p => {
+    if (p <= mascada){
+      dentroDoOrcamento.push(p);
+    }
+    return dentroDoOrcamento.sort((a,b) => a-b).join(',');
+  })
+};
