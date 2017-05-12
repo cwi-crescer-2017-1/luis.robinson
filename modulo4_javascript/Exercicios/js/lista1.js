@@ -47,4 +47,12 @@ function somar (a){
 }
 //somar(3);
 //somar(4);
-console.log("somar",somar(3)(4));
+//console.log("somar",somar(3)(4));
+
+function fiboSum (number) {
+   return number <= 1 ? number
+        // viva lá recursividad.
+        : fiboSum(number - 1) + fiboSum(number - 2);
+};
+
+console.log("somar",fiboSum(10));
