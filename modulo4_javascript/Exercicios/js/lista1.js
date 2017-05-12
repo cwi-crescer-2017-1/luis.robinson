@@ -9,11 +9,11 @@ function daisyGame (number){
 //daisyGame(3);
 //daisyGame(4);
 
-function maiorTexto(Stringao){
+function maiorTexto(stringao){
   var maior = "UAU";
-  for (var i = 0;i < Stringao.length; i++){
-    if (Stringao[i].length > maior.length){
-      maior = Stringao[i];
+  for (var i = 0;i < stringao.length; i++){
+    if (stringao[i].length > maior.length){
+      maior = stringao[i];
     }
   }
   console.log("The big one is:",maior);
@@ -24,12 +24,18 @@ function maiorTexto(Stringao){
 
 var instrutor = [ 'bernardo', 'nunes', 'fabrício', 'ben-hur', 'carlos' ] ;
 
-function arrayInstrutor(instrutor) {
+function funcInstrutor(instrutor) {
    console.log('olá querido instrutor:', instrutor)
  };
 
 function imprime(instrutor, funcao){
-  if (typeoff funcao !== function){
-
+  if (typeof funcao !== 'function'){
+    console.log("Não é uma function");
+  } else {
+    for (var i = 0;i < instrutor.length; i++){
+        funcao(instrutor[i]);
+    }
   }
 };
+
+//imprime(instrutor,funcInstrutor);
