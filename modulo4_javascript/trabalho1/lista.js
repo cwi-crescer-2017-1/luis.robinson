@@ -12,12 +12,12 @@ function seriesInvalidas(series){
 
 console.log(seriesInvalidas(series));
 
-Exer 2
+//Exer 2
 var filtrarSeriesPorAno = (series, ano) =>
     series.filter(s => s.anoEstreia >= ano);
 console.log(filtrarSeriesPorAno(series, 2017));
 
-Exer 3
+//Exer 3
 // testando arrow function
 var mediaEpisodios = (series) => {
     return series.reduce((total, serie) =>
@@ -25,7 +25,7 @@ var mediaEpisodios = (series) => {
 };
 console.log(mediaEpisodios(series));
 
-Exer 4
+//Exer 4
 var procurarPorNome = (series, nome) =>
     series.filter(s => s.elenco.indexOf(nome) >= 0).length > 0;
 
