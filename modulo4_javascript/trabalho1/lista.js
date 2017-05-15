@@ -33,13 +33,11 @@ var filtrarSeriesPorAno = (series, ano) =>
     series.filter(s => s.anoEstreia >= ano);
 console.log(filtrarSeriesPorAno(series, 2017));
 
-// retorna um arr
-ay com todas as séries com
+// retorna um array com todas as séries com
 // ano de estreia igual ou maior que 2017.
-function filtrarSeriesPorAno(series, ano) {
+function filtrarSeriesPorAno1(series, ano) {
   return series.filter(s => s.anoEstreia >= ano)
 }
-
 
 //Exer 3
 // testando arrow function
@@ -48,6 +46,17 @@ var mediaEpisodios = (series) => {
         total + serie.numeroEpisodios, 0) / series.length;
 };
 console.log(mediaEpisodios(series));
+/ numeroEpisodios
+// 34.1
+function mediaDeEpisodios1(series) {
+  // return series
+  //   .map(function(s) { return s.numeroEpisodios })
+  //   .reduce(function(acc, numeroEpisodios) { return acc + numeroEpisodios }, 0) / series.length;
+  return series
+    .map(s => s.numeroEpisodios)
+    .reduce((acc, numeroEpisodios) => acc + numeroEpisodios) / series.length;
+}
+//
 
 //Exer 4
 var procurarPorNome = (series, nome) =>
