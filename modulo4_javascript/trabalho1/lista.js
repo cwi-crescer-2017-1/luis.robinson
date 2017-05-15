@@ -8,9 +8,14 @@ function seriesInvalidas(series){
         }
     }
     return seriesInvalidadas.toString();
-}
+};
 
 console.log(seriesInvalidas(series));
+
+Exer 2
+var filtrarSeriesPorAno = (series, ano) =>
+    series.filter(s => s.anoEstreia >= ano);
+console.log(filtrarSeriesPorAno(series, 2017));
 
 Exer 3
 // testando arrow function
