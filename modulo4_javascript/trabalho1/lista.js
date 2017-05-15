@@ -76,7 +76,7 @@ var mascadaEmSerie = (serie) =>
 //console.log(mascadaEmSerie(series[0]));
 
 //Retorna o valor total de gastos contando os diretores e o elenco
-function mascadaEmSerie(serie) {
+function mascadaEmSerie1(serie) {
   let custoComDiretores = serie.diretor.length * 100000;
   let custoComElenco = serie.elenco.length * 40000;
   return custoComDiretores + custoComElenco;
@@ -88,6 +88,11 @@ var queroGenero = (gen, series) => {
     return series.filter(s => s.genero.indexOf(gen) >= 0)
         .map(s => s.titulo);
 };
+
+function queroGenero1(genero) {
+  return series.filter(s => s.genero.includes(genero));
+}
+//
 
 //console.log(queroGenero("Caos", series));
 
