@@ -36,3 +36,11 @@ var mascadaEmSerie = (serie) =>
     serie.elenco.length * 40000 + serie.diretor.length * 100000;
 
 //console.log(mascadaEmSerie(series[0]));
+
+//Exer 6
+var queroGenero = (gen, series) => {
+    return series.filter(s => s.genero.indexOf(gen) >= 0)
+        .map(s => s.titulo);
+};
+
+//console.log(queroGenero("Caos", series));
