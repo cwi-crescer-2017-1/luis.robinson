@@ -44,3 +44,10 @@ var queroGenero = (gen, series) => {
 };
 
 //console.log(queroGenero("Caos", series));
+
+var queroTitulo = (tit, series) => {
+    return series.filter(s => s.titulo.includes(tit))
+        .map(s => s.titulo);
+};
+
+//console.log(queroTitulo("The", series));
