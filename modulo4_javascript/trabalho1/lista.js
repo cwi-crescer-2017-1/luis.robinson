@@ -92,6 +92,20 @@ var queroGenero = (gen, series) => {
 function queroGenero1(genero) {
   return series.filter(s => s.genero.includes(genero));
 }
+
+function queroTitulo1(titulo) {
+  return series
+    .filter(s => s.titulo.includes(titulo))
+    .map(s => s.titulo);
+}
+
+let subset = queroTitulo("The");
+let divSubset = document.getElementById('subset');
+subset.forEach(titulo => {
+  let h2 = document.createElement('h2');
+  h2.innerText = `${ titulo }`;
+  divSubset.append(h2);
+});
 //
 
 //console.log(queroGenero("Caos", series));
@@ -132,3 +146,34 @@ var ordenarPorNomeAsc = (a, b) => {
 };
 
 creditosIlluminatis(series[1]);
+
+// exer 7.1
+let subset = queroTitulo("The");
+let divSubset = document.getElementById('subset');
+subset.forEach(titulo => {
+  let h2 = document.createElement('h2');
+  h2.innerText = `${ titulo }`;
+  divSubset.append(h2);
+});
+
+String.prototype.pegarUltimoNome = function(a, b) {
+  let partesNome = this.trim().split(" ");
+  return partesNome[partesNome.length - 1];
+}
+
+// 1. ordenar elenco pelo último nome
+// 2. saber montar os créditos
+function creditosIlluminatis(serie) {
+  let criterioDeOrdenacao = (s1, s2) => {
+    return s1.pegarUltimoNome().localeCompare(s2.pegarUltimoNome())
+  }
+  let elencoOrdenado = serie.elenco.sort(criterioDeOrdenacao);
+  let diretoresOrdenados = serie.diretor.sort(criterioDeOrdenacao);
+
+  console.log(serie.titulo);
+  console.log("Diretores");
+  console.log(diretoresOrdenados);
+  console.log("Elenco");
+  console.log(elencoOrdenado);
+}
+//
