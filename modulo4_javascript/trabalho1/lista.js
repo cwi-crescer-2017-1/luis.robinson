@@ -33,6 +33,14 @@ var filtrarSeriesPorAno = (series, ano) =>
     series.filter(s => s.anoEstreia >= ano);
 console.log(filtrarSeriesPorAno(series, 2017));
 
+// retorna um arr
+ay com todas as séries com
+// ano de estreia igual ou maior que 2017.
+function filtrarSeriesPorAno(series, ano) {
+  return series.filter(s => s.anoEstreia >= ano)
+}
+
+
 //Exer 3
 // testando arrow function
 var mediaEpisodios = (series) => {
