@@ -30,3 +30,9 @@ var procurarPorNome = (series, nome) =>
     series.filter(s => s.elenco.indexOf(nome) >= 0).length > 0;
 
 console.log(procurarPorNome(series, "Luis Robinson"));
+
+//Exer 5
+var mascadaEmSerie = (serie) =>
+    serie.elenco.length * 40000 + serie.diretor.length * 100000;
+
+//console.log(mascadaEmSerie(series[0]));
