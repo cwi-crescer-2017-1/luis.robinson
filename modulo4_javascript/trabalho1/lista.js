@@ -24,3 +24,9 @@ var mediaEpisodios = (series) => {
         total + serie.numeroEpisodios, 0) / series.length;
 };
 console.log(mediaEpisodios(series));
+
+Exer 4
+var procurarPorNome = (series, nome) =>
+    series.filter(s => s.elenco.indexOf(nome) >= 0).length > 0;
+
+console.log(procurarPorNome(series, "Luis Robinson"));
