@@ -64,6 +64,11 @@ var procurarPorNome = (series, nome) =>
 
 console.log(procurarPorNome(series, "Luis Robinson"));
 
+function procurarPorNome1(series, nome) {
+  // indexOf
+  return series.some(s => s.elenco.some(e => e.includes(nome)));
+}
+//
 //Exer 5
 var mascadaEmSerie = (serie) =>
     serie.elenco.length * 40000 + serie.diretor.length * 100000;
