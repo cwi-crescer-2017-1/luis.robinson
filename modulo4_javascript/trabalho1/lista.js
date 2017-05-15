@@ -11,3 +11,11 @@ function seriesInvalidas(series){
 }
 
 console.log(seriesInvalidas(series));
+
+Exer 3
+// testando arrow function
+var mediaEpisodios = (series) => {
+    return series.reduce((total, serie) =>
+        total + serie.numeroEpisodios, 0) / series.length;
+};
+console.log(mediaEpisodios(series));
