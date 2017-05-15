@@ -177,3 +177,17 @@ function creditosIlluminatis(serie) {
   console.log(elencoOrdenado);
 }
 //
+  //.match(expressão regular);
+  // retorna quem caiu naquelaregra
+  // find();
+
+  console.log("oi B. tchau".temAbreviacao())
+
+  function descobrirSerieComTodosAbreviados() {
+    let elencoSerie = series
+      .find(s => s.elenco.every(e => e.temAbreviacao()))
+      .elenco
+      .map(e => e.match(/ [a-z][.] /gi)[0][1])
+      .join("");
+    return `#${ elencoSerie }`;
+  }
