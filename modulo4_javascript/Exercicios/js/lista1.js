@@ -74,3 +74,8 @@ function queroCafe(mascada,precos){
     return dentroDoOrcamento.sort((a,b) => a-b).join(',');
   })
 };
+
+function arredondaNumero(num,casas){
+  return  casas === null? num.toFixed(2) : num.toFixed(casas);
+}
+console.log("ar",arredondaNumero(3.1444,3));
