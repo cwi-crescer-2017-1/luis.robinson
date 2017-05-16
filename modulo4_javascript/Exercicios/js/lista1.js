@@ -78,4 +78,22 @@ function queroCafe(mascada,precos){
 function arredondaNumero(num,casas){
   return  casas === null? num.toFixed(2) : num.toFixed(casas);
 }
+
 console.log("ar",arredondaNumero(3.1444,3));
+
+function roundNumber(num, scale) {
+  scale === null ? scale == 2 : scale == scale ;
+  
+  if(!("" + num).includes("e")) {
+    return +(Math.round(num + "e+" + scale)  + "e-" + scale);
+  } else {
+    var arr = ("" + num).split("e");
+    var sig = ""
+    if(+arr[1] + scale > 0) {
+      sig = "+";
+    }
+    return +(Math.round(+arr[0] + "e" + sig + (+arr[1] + scale)) + "e-" + scale);
+  }
+};
+
+console.log("round",roundNumber(3.1444,3));
