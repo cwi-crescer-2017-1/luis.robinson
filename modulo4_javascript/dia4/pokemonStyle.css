@@ -1,0 +1,22 @@
+* {
+  box-sizing: border-box;
+}
+
+.leftPokemon {
+    position: relative;
+    width: 50%;
+    margin: 0 auto;
+    background-color:#fffff;
+    border: 0.2px solid lightgrey;
+    border-radius: 30px;
+}
+
+#detalhesPokemon {
+    position: relative;
+    width: 50%;
+    margin: 0 auto;
+}
+
+img {
+  border: 5px solid red;
+}
