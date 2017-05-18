@@ -69,6 +69,7 @@ $scope.instrutores = instrutores;
 
 modulo.filter('mascada',function(){
   return function(nome){
-        return nome.replace(/Nunes/i,'$ Nunes $');
+     // / i ignora o case
+        return nome.replace(/(nunes)/i,'$ $1 $');
   }
 });
