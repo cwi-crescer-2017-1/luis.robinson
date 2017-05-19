@@ -42,7 +42,7 @@ modulo.controller('instrutoresController',function($scope){
 			let orderAula  = []
 
 			instrutores.forEach( instrutor =>
-				instrutor.aula.forEach(aula=>
+				instrutor.aula.forEach(aula =>
 					orderAula.push({numero : aula.numero, aula : aula.nome ,nome : instrutor.nome }
 			)))
 
