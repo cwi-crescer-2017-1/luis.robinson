@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br" ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://code.angularjs.org/1.6.4/angular.js"></script>
+     <script src="js/pt-br.js"></script>
+    <script src="js/controller.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <title>Aula3</title>
+  </head>
+  <body>
+
+  <div class="container" ng-controller="MainController">
+
+    <form novalidate name="meuForm" ng-submit="incluir(novoNome)">
+
+      <label for="nome">Novo Nome:</label>
+      <input type="text" name="nome" ng-model="novoNome" required ng-minlength="3" ng-maxlength="20"/>
+
+      <span ng-if="meuForm.nome.$error.required">
+        Campo Obrigatório
+      </span>
+
+      <span ng-show="meuForm.nome.$error.minlength">
+        Deve ter no mínimo 3 letras
+        </span>
+
+        <span ng-show="meuForm.nome.$error.maxlength">
+        Deve ter no máximo 10 letras
+        </span>
+
+        <h4>{{meuForm.nome.$error}}</h4>
+
+        <label for="sobrenome">Novo Nome:</label>
+        <input type="text" name="sobrenome" ng-model="novoSobrenome" required ng-maxlength="30"/>
+
+        <label for="idade">Idade: </label>
+        <input type="number" name="idade" ng-model="novaIdade"/>
+
+        <label for="email">Email: </label>
+        <input type="email" name="email" ng-model="novoEmail"/>
+
+
+      <button type="submit">Incluir</button>
+
+    </form>
+
+    <h1>Nomes</h1>
+
+    <ul>
+      <li ng-repeat="item in nomes">
+        {{ item }}
+      </li>
+    </ul>
+
+  </div>
+
+</body>
+</html>
