@@ -15,7 +15,7 @@
 
     <form novalidate name="meuForm" ng-submit="incluir(novoNome)">
 
-      <label for="nome">Novo Nome:</label>
+      <label for="nome">Nome:</label>
       <input type="text" name="nome" ng-model="novoNome" required ng-minlength="3" ng-maxlength="20"/>
 
       <span ng-if="meuForm.nome.$error.required">
@@ -32,7 +32,7 @@
 
         <h4>{{meuForm.nome.$error}}</h4>
 
-        <label for="sobrenome">Novo Nome:</label>
+        <label for="sobrenome">Sobrenome:</label>
         <input type="text" name="sobrenome" ng-model="novoSobrenome" required ng-maxlength="30"/>
 
         <label for="idade">Idade: </label>
@@ -41,18 +41,41 @@
         <label for="email">Email: </label>
         <input type="email" name="email" ng-model="novoEmail"/>
 
+        <label for="jaDeuAula">Já deu aula ?  </label>
+        <select name="jaDeuAula" ng-model="novoJaDeuAula">
+          <option value="true">Sim</option>
+          <option value="false">No</option>
+        </select>
+
+        <label for="aula">Aulas ministradas: </label>
+        <select  name="aula" ng-model="novoAula">
+          <<option ng-repeat="aula in aulas" value="{{aula}}">{{aula}}</option>
+        </select>
+
 
       <button type="submit">Incluir</button>
 
     </form>
 
+    <h1>Objeto</h1>
+
+    <ul>
+      <li ng-repeat="intrutor in instrutores">
+        {{ instrutor | json }}
+      </li>
+    </ul>
+
     <h1>Nomes</h1>
+
 
     <ul>
       <li ng-repeat="item in nomes">
         {{ item }}
       </li>
     </ul>
+
+
+
 
   </div>
 

@@ -9,9 +9,9 @@ app.controller('MainController', function ($scope) {
     if ($scope.meuForm.$valid) {
       $scope.nomes.push(novoNome);
     }
-  }
+  };
 
-  let instrutores = [
+  $scope.instrutores = [
   {
     nome: 'Bernardo',
     sobrenome: 'Rezende',
@@ -22,12 +22,14 @@ app.controller('MainController', function ($scope) {
   }
 ];
 
-let aulas = [
+$scope.aulas = [
   'OO',
   'HTML e CSS',
   'Javascript',
   'AngularJS',
   'Banco de Dados I'
 ];
+
+
 
 });
