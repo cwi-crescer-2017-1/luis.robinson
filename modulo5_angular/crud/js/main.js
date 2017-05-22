@@ -30,7 +30,7 @@ let instrutores = [
     email: 'bernardo@cwi.com.br',       // Obrigatório (email)
     jaDeuAula: true,                    // boolean
     aula: [aulas[0], aulas[3]],         // Opcional (array)
-    urlFoto: 'img/facebook-batman.jpg'    // Opcional (porém tem uma default de livre escolha)
+    urlFoto: ''
   },
   {
     id:1,
@@ -79,24 +79,40 @@ myapp.controller('controller', ['$scope', function($scope){
   $scope.deletarAula = function (){
       let deletar = $scope.deletarAula.nome
       if($scope.formDeletarAula.$valid){
-
+        //console.log('caiu1');
         let auxiliar = false;
         let index = aulas.map(a => a.nome).indexOf(deletar)
         if(index != -1){
           let arrayInstrutoresAulas = instrutores.map(i => i.aula)
+            //console.log('caiu2');
           for(array of arrayInstrutoresAulas)
           for(a of array){
             if(a.nome.indexOf(deletar) != -1){
+              //console.log('caiu3',a.nome);
               auxiliar = true;
+            //  console.log('caiu4',auxiliar);
               break;
             }
           }
           if(!auxiliar){
+            //console.log('caiu5');
             aulas.splice(index, 1);
+
             $scope.deletarAula = {};
             alert("aula deletada");
           }
-        } else  auxiliar ? alert("Não é possível excluir esta aula. Está sendo utilizada.") : alert("nao existe essa aula no array de aulas");
+        } else
+          console.log('caiu4',auxiliar);
+          // tem um delay de time por algum motivo.
+          if (auxiliar !== true){
+            alert("A aula está sendo utilizada.");
+
+          } else {
+              alert("nao existe essa aula");
+
+          }
+
+
       }
     }
 
