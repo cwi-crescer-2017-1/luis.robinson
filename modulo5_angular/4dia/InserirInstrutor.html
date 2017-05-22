@@ -1,0 +1,28 @@
+<form novalidate name="formIncluiInstrutor" ng-submit="incluirInstrutor()">
+  <h3>Incluir Instrutor</h3>
+  <label>Nome</label>
+  <input type="text" name="nomeInstrutor" ng-model="novoInstrutor.nome" required ng-minlength="3" ng-maxlength="20" placeholder="Bernardo">
+    <br>
+  <label>Sobrenome</label>
+  <input type="text" name="sobrenomeInstrutor" ng-model="novoInstrutor.sobrenome" ng-maxlength="30">
+    <br>
+  <label>Idade</label>
+  <input type="number" max=90 name="idadeInstrutor" ng-model="novoInstrutor.idade" required>
+    <br>
+  <label>Email</label>
+  <input type="email" name="emailInstrutor" ng-model="novoInstrutor.email" required>
+    <br>
+  <label>Esta Dando Aula?</label>
+  <input type="checkbox" name="dandoAulaInstrutor" ng-model="novoInstrutor.dandoAula">
+    <br>
+  <label>Aulas</label>
+  <br>
+  <select multiple name="aulasInstrutor" ng-model="novoInstrutor.aula">
+    <option ng-repeat="a in aulas">{{a.nome}}</option>
+  </select>
+    <br>
+  <label>URL Foto</label>
+  <input type="text" name="urlFotoInstrutor" ng-model="novoInstrutor.urlFoto">
+    <hr>
+  <button class="btn btn-primary" type="submit">Incluir Instrutor</button>
+</form>

@@ -1,4 +1,4 @@
-var myapp = angular.module('crude',[]);
+var myapp = angular.module('crude', ['ngRoute']);
 
 let aulas = [
   { id: 0,
@@ -53,7 +53,7 @@ let instrutores = [
 
 //Funções
 myapp.controller('controller', ['$scope', function($scope){
-  $scope.incluirAula = function (){
+    $scope.incluirAula = function (){
     if($scope.formIncluiAula.$valid){
       let aulaExiste = false;
       for(a of aulas){
