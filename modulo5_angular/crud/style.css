@@ -6,6 +6,7 @@
 }
 body {
     background-color: #6495ED;
+    height:100%;
 }
 
 .col-md-9, .col-md-5 {
@@ -30,4 +31,17 @@ img {
 .titulo{
   color: #ffffff;
   background-color: #520066;
+}
+
+
+.content {
+    display: table;
+    margin: 0 auto;
+    height: 100%;
+}
+
+.area {
+    display: table-cell;
+    vertical-align: middle;
+    height:100%;
 }

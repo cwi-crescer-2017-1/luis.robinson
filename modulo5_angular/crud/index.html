@@ -15,19 +15,19 @@
       <div class="jumbotron titulo" >
         <h1>Crud Aulas</h1>
       </div>
-    <div ng-controller='controller' class="col-md-9 row">
+    <div ng-controller='controller' class="col-md-9 area">
         <ul>
           <li ng-repeat="aula in aulas | aulaOrderBy">
               ID: {{aula.id }} - Nome Aula: {{aula.nome}}
           </li>
 
-          <form novalidate name="formIncluiAula" ng-submit="incluirAula()">
+          <form class="area" novalidate name="formIncluiAula" ng-submit="incluirAula()">
             <label>Incluir Aula</label>
             <input type="text" name="nomeAula" ng-model="novaAula.nome" required placeholder="Javascript" required ng-minlength="3" ng-maxlength='20' >
             <button class="btn btn-primary" type="submit" name="incluirAula">Incluir</button>
           </form>
 
-          <form novalidate name="formAlterarNomeAula" ng-submit="alterarAula()">
+          <form class="area" novalidate name="formAlterarNomeAula" ng-submit="alterarAula()">
             <label>Alterar Aula</label>
             <label>ID:</label>
             <select ng-model="selecaoAula.id" id="selectAula">
@@ -38,7 +38,7 @@
             <input type="text" name="nomeAulaAlterar" ng-model="alterarAula.nome" required placeholder="Javascript" required ng-minlength="3" ng-maxlength='20' >
             <button class="btn btn-primary" type="submit" name="alterarAula">Alterar</button>
           </form>
-          <form novalidate name="formDeletarAula" ng-submit="deletarAula()">
+          <form class="area" novalidate name="formDeletarAula" ng-submit="deletarAula()">
             <label>Deletar Aula</label>
             <input  type="text" name="nomeAulaDeletar" ng-model="deletarAula.nome" required placeholder="Javascript" required ng-minlength="3" ng-maxlength='20' >
             <button class="btn btn-primary" type="submit" name="deletarAula">Deletar</button>
