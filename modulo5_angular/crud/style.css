@@ -1,12 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Slabo+27px');
 
-body {
-    background-color: #6495ED;
-}
-
 *{
     font-family: 'Slabo 27px', serif;
     font-size: 101%;
+}
+body {
+    background-color: #6495ED;
 }
 
 .col-md-6, .col-md-5 {
@@ -16,11 +15,12 @@ body {
 .container {
     margin-top: 1%;
     background: #BEBEBE;
+    align-content: center;
     border-color:  #c43e00;
-    border-radius: 50px;
+    border-radius: 50px;  
 }
 
 img {
     width: 50px;
-    height: auto;
+    height: 50px;;
 }

@@ -12,7 +12,7 @@
   </head>
   <body>
     <div class="container">
-    <div ng-controller='controller'>
+    <div ng-controller='controller' class="col-md-6">
         <ul>
           <li ng-repeat="aula in aulas | aulaOrderBy">
               ID: {{aula.id }} - Nome Aula: {{aula.nome}}
@@ -95,6 +95,7 @@
         </form>
         <hr>
           <form novalidate name="formAlteraInstrutor" ng-submit="alterarInstrutor()">
+            <h3>Alterar Instrutor</h3>
             <select ng-model="selectAltera">
               <option ng-repeat="i in instrutores">{{i.nome}}</option>
             </select>
@@ -126,7 +127,7 @@
           </form>
           <hr>
           <form novalidate name="formDeletaInstrutor" ng-submit="deletarInstrutor()">
-            <label>Deletar Instrutor</label>
+            <label>Deletar Instrutor:</label>
             <select ng-model="instrutorDeletar">
               <option ng-repeat="instrutor in instrutores">{{instrutor.nome}}</option>
             </select>
