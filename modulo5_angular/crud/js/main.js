@@ -80,21 +80,21 @@ myapp.controller('controller', ['$scope', function($scope){
       let deletar = $scope.deletarAula.nome
       if($scope.formDeletarAula.$valid){
         //console.log('caiu1');
-        let auxiliar = false;
+        let existeAula = false;
         let index = aulas.map(a => a.nome).indexOf(deletar)
         if(index != -1){
-          let arrayInstrutoresAulas = instrutores.map(i => i.aula)
+          let instrutoresAulas = instrutores.map(i => i.aula)
             //console.log('caiu2');
-          for(array of arrayInstrutoresAulas)
-          for(a of array){
-            if(a.nome.indexOf(deletar) != -1){
+          for(intrutorAula of instrutoresAulas)
+          for(i of intrutorAula){
+            if(i.nome.indexOf(deletar) != -1){
               //console.log('caiu3',a.nome);
-              auxiliar = true;
+              existeAula = true;
             //  console.log('caiu4',auxiliar);
               break;
             }
           }
-          if(!auxiliar){
+          if(!existeAula){
             //console.log('caiu5');
             aulas.splice(index, 1);
 
@@ -104,7 +104,7 @@ myapp.controller('controller', ['$scope', function($scope){
         } else
           console.log('caiu4',auxiliar);
           // tem um delay de time por algum motivo.
-          if (auxiliar !== true){
+          if (existeAula === true){
             alert("A aula está sendo utilizada.");
 
           } else {
