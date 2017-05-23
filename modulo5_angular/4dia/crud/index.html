@@ -23,22 +23,38 @@
       <div class="jumbotron titulo" >
         <h1>Crud Aulas</h1>
       </div>
-
-
       <div class="btn-group" role="group" aria-label="...">
-
         <button type="button" class="btn btn-default"><a href="#!/incluirInstrutor">Inserir</a></button>
         <button type="button" class="btn btn-default"><a href="#!/alterarInstrutor">Alterar</a></button>
         <button type="button" class="btn btn-default"><a href="#!/deletarInstrutor">Deletar</a></button>
      </div>
+     <hr>
 
       <ng-view></ng-view>
 
-    <div ng-controller='controller' class="col-md-9 area">
-        <ul>
-          <li ng-repeat="aula in aulas | aulaOrderBy">
-              ID: {{aula.id }} - Nome Aula: {{aula.nome}}
-          </li>
+      <div ng-controller='controller' class="col-md-12 area">
+
+        <div class="panel panel-default">
+        <!-- Default panel contents -->
+          <div class="panel-heading">Aulas</div>
+            <!-- Table -->
+          <table class="table">
+            <thead>
+              <tr>
+                <th>ID:</th>
+                <th>Nome:</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="aula in aulas | aulaOrderBy">
+                <th>{{aula.id }}</th>
+                <th>{{aula.nome}}</th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+
 
           <form class="area" novalidate name="formIncluiAula" ng-submit="incluirAula()">
             <label>Incluir Aula</label>
@@ -57,39 +73,55 @@
             <input type="text" name="nomeAulaAlterar" ng-model="alterarAula.nome" required placeholder="Javascript" required ng-minlength="3" ng-maxlength='20' >
             <button class="btn btn-primary" type="submit" name="alterarAula">Alterar</button>
           </form>
+
           <form class="area" novalidate name="formDeletarAula" ng-submit="deletarAula()">
             <label>Deletar Aula</label>
             <input  type="text" name="nomeAulaDeletar" ng-model="deletarAula.nome" required placeholder="Javascript" required ng-minlength="3" ng-maxlength='20' >
             <button class="btn btn-primary" type="submit" name="deletarAula">Deletar</button>
           </form>
 
-        </ul>
+
         <hr>
-        <ul>
-          <li ng-repeat="instrutor in instrutores | instrutorOrderBy">
-              ID:         {{instrutor.id}}
-              <br>
-              Nome:       {{instrutor.nome}}
-              <br>
-              Sobrenome:  {{instrutor.sobrenome}}
-              <br>
-              Idade: {{instrutor.idade}}
-              <br>
-              email: {{instrutor.email}}
-              <br>
-              Ja deu Aula: {{instrutor.jaDeuAula}}
-              <br>
-              Aulas:  <ul>
-                        <li ng-repeat="aula in instrutor.aula">{{aula.nome}}</li>
-                      </ul>
-              <br>
-              urlFoto: {{instrutor.urlFoto}}
-              <br>
-              <!-- tentar fazer dibâmico -->
-              <img src='img/facebook-batman.jpg' > </img>
-              <hr>
-          </li>
-        </ul>
+
+        <div class="panel panel-default">
+        <!-- Default panel contents -->
+          <div class="panel-heading">Aulas</div>
+            <!-- Table -->
+          <table class="table">
+            <thead>
+              <tr>
+                <th>ID:</th>
+                <th>Nome:</th>
+                <th>Sobrenome:</th>
+                <th>Idade:</th>
+                <th>email:</th>
+                <th>já deu aula?</th>
+                <th>Aulas:</th>
+                <th>urlFoto:</th>
+                <th>#:</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="instrutor in instrutores | instrutorOrderBy">
+                <th>{{instrutor.id }}</th>
+                <th>{{instrutor.nome}}</th>
+                <th>{{instrutor.sobrenome}}</th>
+                <th>{{instrutor.idade}}</th>
+                <th>{{instrutor.email}}</th>
+                <th>{{instrutor.jaDeuAula}}</th>
+                <th>
+                  <ul>
+                    <li ng-repeat="aula in instrutor.aula">{{aula.nome}}</li>
+                  </ul>
+                </th>
+                <th>{{instrutor.urlFoto}}</th>
+                <th><img src='img/facebook-batman.jpg'/></th>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+
         <hr>
 
 
