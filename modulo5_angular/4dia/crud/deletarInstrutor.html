@@ -1,0 +1,9 @@
+</form>
+<hr>
+<form novalidate name="formDeletaInstrutor" ng-submit="deletarInstrutor()">
+  <label>Deletar Instrutor:</label>
+  <select ng-model="instrutorDeletar">
+    <option ng-repeat="instrutor in instrutores">{{instrutor.nome}}</option>
+  </select>
+  <button class="btn btn-primary" type="submit">Deletar Instrutor</button>
+</form>

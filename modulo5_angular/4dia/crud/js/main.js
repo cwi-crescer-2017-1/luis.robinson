@@ -1,4 +1,4 @@
-var myapp = angular.module(`crude`,[]);
+var app = angular.module('app',['ngRoute']);
 
 let aulas = [
   { id: 0,
@@ -52,7 +52,7 @@ let instrutores = [
 ];
 
 //Funções
-myapp.controller('controller', ['$scope', function($scope){
+app.controller('controller', ['$scope', function($scope){
   $scope.incluirAula = function (){
     if($scope.formIncluiAula.$valid){
       let aulaExiste = false;
@@ -130,7 +130,7 @@ myapp.controller('controller', ['$scope', function($scope){
       }
 
       if(!instrutorExiste && !emailExiste){
-        
+
         $scope.novoInstrutor.id = instrutores.length;
         let aulasInstrutor = [];
         if($scope.novoInstrutor.aula != null)
@@ -204,7 +204,7 @@ myapp.controller('controller', ['$scope', function($scope){
 
 
 //Filtros
-myapp.filter('aulaOrderBy', function(){
+app.filter('aulaOrderBy', function(){
   return function(){
     return aulas.sort(function(a, b) {
           var nameA = a.nome.toUpperCase(); // ignore upper and lowercase
@@ -220,7 +220,7 @@ myapp.filter('aulaOrderBy', function(){
         });
   }
 });
-myapp.filter('instrutorOrderBy', function(){
+app.filter('instrutorOrderBy', function(){
   return function(){
     return instrutores.sort(function(a, b) {
           var nameA = a.nome.toUpperCase();
@@ -235,4 +235,38 @@ myapp.filter('instrutorOrderBy', function(){
           return 0;
         });
   }
+});
+
+
+app.config(function ($routeProvider) {
+
+  $routeProvider
+    .when('/deletarInstrutor', {
+      controller: 'Pagina01Controller',
+      templateUrl: 'deletarInstrutor.html'
+    })
+    .when('/alterarInstrutor', {
+      controller: 'Pagina02Controller',
+      templateUrl: 'alterarInstrutor.html'
+    })
+    .when('/incluirInstrutor', {
+      controller: 'AulaController',
+      templateUrl: 'incluirInstrutor.html'
+    })
+    .when('/pokemon', {
+      controller: 'PokemonController',
+      templateUrl: 'pokemon.html'
+    })
+    .otherwise({
+      redirectTo: '/index.html'
+    });
+});
+
+
+app.controller('Pagina01Controller', function ($scope) {
+  $scope.controller = 'Pagina01Controller';
+});
+
+app.controller('Pagina02Controller', function ($scope) {
+  $scope.controller = 'Pagina02Controller';
 });
