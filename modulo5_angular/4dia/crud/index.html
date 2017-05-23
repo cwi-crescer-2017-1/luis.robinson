@@ -43,18 +43,22 @@
               <tr>
                 <th>ID:</th>
                 <th>Nome:</th>
+                <th>Alterar</th>
+                <th>Excluir</th>
               </tr>
             </thead>
             <tbody>
               <tr ng-repeat="aula in aulas | aulaOrderBy">
                 <th>{{aula.id }}</th>
                 <th>{{aula.nome}}</th>
+                <th><button type="submit" class="btn btn-primary" value="{{aula.id}}">Alt</button></th>
+                <th><button type="submit" class="btn btn-primary" value="{{aula.id}}">X</button></th>
               </tr>
             </tbody>
           </table>
         </div>
 
-
+        
 
           <form class="area" novalidate name="formIncluiAula" ng-submit="incluirAula()">
             <label>Incluir Aula</label>
