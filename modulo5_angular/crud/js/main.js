@@ -206,15 +206,15 @@ myapp.controller('controller', ['$scope', function($scope){
 myapp.filter('aulaOrderBy', function(){
   return function(){
     return aulas.sort(function(a, b) {
-          var nameA = a.nome.toUpperCase(); // ignore upper and lowercase
-          var nameB = b.nome.toUpperCase(); // ignore upper and lowercase
+          var nameA = a.nome.toUpperCase();
+          var nameB = b.nome.toUpperCase();
           if (nameA < nameB) {
             return -1;
           }
           if (nameA > nameB) {
             return 1;
           }
-          // names must be equal
+
           return 0;
         });
   }
@@ -230,7 +230,7 @@ myapp.filter('instrutorOrderBy', function(){
           if (nameA > nameB) {
             return 1;
           }
-          // nomes devem ser iguais
+
           return 0;
         });
   }
