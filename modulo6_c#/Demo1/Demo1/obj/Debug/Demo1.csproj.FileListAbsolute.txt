@@ -1,0 +1,6 @@
+C:\Users\luis.robinson\Documents\luis.robinson\modulo6_c#\Demo1\Demo1\bin\Debug\Demo1.exe.config
+C:\Users\luis.robinson\Documents\luis.robinson\modulo6_c#\Demo1\Demo1\bin\Debug\Demo1.exe
+C:\Users\luis.robinson\Documents\luis.robinson\modulo6_c#\Demo1\Demo1\bin\Debug\Demo1.pdb
+C:\Users\luis.robinson\Documents\luis.robinson\modulo6_c#\Demo1\Demo1\obj\Debug\Demo1.csprojResolveAssemblyReference.cache
+C:\Users\luis.robinson\Documents\luis.robinson\modulo6_c#\Demo1\Demo1\obj\Debug\Demo1.exe
+C:\Users\luis.robinson\Documents\luis.robinson\modulo6_c#\Demo1\Demo1\obj\Debug\Demo1.pdb
