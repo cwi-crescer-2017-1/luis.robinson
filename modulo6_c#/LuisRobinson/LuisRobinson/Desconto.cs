@@ -13,6 +13,10 @@ namespace FolhaPagamento
             Aliquota = aliquota;
             Valor = valor;
         }
+        public double CalcDesc()
+        {
+            return Valor * (Aliquota / 100);
+        }
 
         public double Aliquota { get; private set; }
         public double Valor { get; private set; }
