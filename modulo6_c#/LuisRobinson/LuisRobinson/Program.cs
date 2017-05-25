@@ -10,9 +10,12 @@ namespace FolhaPagamento
     {
         static void Main(string[] args)
         {
-            GeradorDeDemonstrativo gerar = new GeradorDeDemonstrativo();
             
             
+            Demonstrativo demo = new GeradorDeDemonstrativo().GerarDemonstrativo(200, 5000, 50, 10);
+            demo.ImprimeConsole();
+
+
             Console.ReadKey();
         }
     }
