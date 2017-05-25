@@ -15,7 +15,8 @@ namespace FolhaPagamento
         }
         public double CalcDesc()
         {
-            return Math.Round(Valor * (Aliquota / 100),2);
+            return Math.Truncate((Valor * (Aliquota / 100)) * 100) / 100;
+            //return Math.Round(Valor * (Aliquota / 100),2);
         }
         
 
