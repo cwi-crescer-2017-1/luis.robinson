@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace FolhaPagamento
 {
-    class GeradorDeDemonstrativo
+    class GeradorDeDemonstrativo : IFolhaPagamento
     {
+        public Demonstrativo GerarDemonstrativo(int horasCategoria, double salarioBase, double horasExtras, double horasDescontadas)
+        {
+            throw new NotImplementedException();
+        }
     }
+
+
 }
