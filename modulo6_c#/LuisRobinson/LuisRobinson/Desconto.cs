@@ -15,11 +15,15 @@ namespace FolhaPagamento
         }
         public double CalcDesc()
         {
-            return Valor * (Aliquota / 100);
+            return Math.Round(Valor * (Aliquota / 100),2);
         }
+        
 
         public double Aliquota { get; private set; }
         public double Valor { get; private set; }
+        public double Inss { get; private set; }
+        public double Irrf { get; private set; }
+        public double Fgts { get; private set; }
     }
 
 }

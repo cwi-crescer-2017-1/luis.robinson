@@ -16,7 +16,7 @@ namespace FolhaPagamento
         public double CalcHoras()
         {
             // valor sem descontos = valor * qt horas             
-            return QtdHoras * ValorTotalHoras;
+            return Math.Round(QtdHoras * ValorTotalHoras,2);
         }
         public double QtdHoras { get; private set; }
         public double ValorTotalHoras { get; private set; }
