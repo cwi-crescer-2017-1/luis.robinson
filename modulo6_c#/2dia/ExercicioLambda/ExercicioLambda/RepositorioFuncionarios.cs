@@ -81,7 +81,8 @@ namespace ExercicioLambda
 
         public IList<Funcionario> BuscarPorCargo(Cargo cargo)
         {
-            return Funcionarios.Where(funcionario => funcionario.Cargo.Equals(cargo)).ToList();
+            return Funcionarios
+                .Where(funcionario => funcionario.Cargo.Equals(cargo)).ToList();
         }
 
         public IList<Funcionario> OrdenadosPorCargo()
@@ -93,12 +94,14 @@ namespace ExercicioLambda
 
         public IList<Funcionario> BuscarPorNome(string nome)
         {
-            throw new NotImplementedException();
+            return Funcionarios
+                .Where(funcionario => funcionario.Nome.Contains(nome)).ToList();
         }
 
         public IList<Funcionario> BuscarPorTurno(params TurnoTrabalho[] turnos)
         {
-            throw new NotImplementedException();
+            return Funcionarios
+                .Where(funcionario => turnos.Contains(funcionario.TurnoTrabalho)).ToList();
         }
 
         public IList<Funcionario> FiltrarPorIdadeAproximada(int idade)
