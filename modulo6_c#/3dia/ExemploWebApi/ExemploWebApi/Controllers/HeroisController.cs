@@ -25,6 +25,8 @@ namespace ExemploWebApi.Controllers
             {
                 return BadRequest();
             }
+
+            // processador não vai trocar de tread, vai 
             lock (objetoLock)
             {
                 heroi.Id = IdGenerator++;
