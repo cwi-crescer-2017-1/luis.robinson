@@ -125,7 +125,8 @@ namespace ExercicioLambda
 
         public IList<Funcionario> AniversariantesDoMes()
         {
-            throw new NotImplementedException();
+            return Funcionarios
+                .Where(funcionario => funcionario.DataNascimento.Month == DateTime.Now.Month).ToList();
         }
 
         public IList<dynamic> BuscaRapida()
