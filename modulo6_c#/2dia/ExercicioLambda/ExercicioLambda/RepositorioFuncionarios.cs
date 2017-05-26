@@ -106,7 +106,9 @@ namespace ExercicioLambda
 
         public IList<Funcionario> FiltrarPorIdadeAproximada(int idade)
         {
-            throw new NotImplementedException();
+            return Funcionarios
+                 .Where(funcionario => CalcularIdade(funcionario.DataNascimento) <= idade + 5 
+                              &&       CalcularIdade(funcionario.DataNascimento) >= idade - 5).ToList();
         }
 
         private int CalcularIdade(DateTime dataNascimento)
