@@ -113,7 +113,9 @@ namespace ExercicioLambda
 
         private int CalcularIdade(DateTime dataNascimento)
         {
-            throw new NotImplementedException();
+            // usar o Year
+            //DateTime.Now.Year
+            return DateTime.Now.Year - dataNascimento.Year;
         }
 
         public double SalarioMedio(TurnoTrabalho? turno = null)
