@@ -152,6 +152,7 @@ namespace ExercicioLambda.Tests
                 var repositorioFuncionarios = new RepositorioFuncionarios();
 
                 dynamic funcionarioComplex = repositorioFuncionarios.FuncionarioMaisComplexo();
+                
                 Assert.AreEqual("Dollynho Developer", funcionarioComplex.Nome);
                 Assert.AreEqual("10/10/1980", funcionarioComplex.DataNascimento);
                 Assert.AreEqual("R$ 550,50", funcionarioComplex.SalarioRS);
