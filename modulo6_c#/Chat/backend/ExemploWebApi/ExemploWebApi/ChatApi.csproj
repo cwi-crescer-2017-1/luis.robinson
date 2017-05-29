@@ -94,12 +94,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ChatController.cs" />
     <Compile Include="Controllers\ExemploController.cs" />
     <Compile Include="Controllers\HeroisController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Heroi.cs" />
+    <Compile Include="Models\Usuario.cs" />
+    <Compile Include="Models\Mensagem.cs" />
     <Compile Include="Models\Poder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
