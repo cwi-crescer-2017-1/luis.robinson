@@ -1,0 +1,33 @@
+ADO
+
+crud mais rápido.
+controller -> adicionar -> classe do controladorda web. (tem get, set,post..etc)
+
+
+
+SQL server
+ 
+13.65.101.67
+opções -> propriedades da conexao aluno23db
+luis.robinson
+123456
+
+
+site connection string.
+exemplo : "Server=13.65.101.67;User Id=luis.robinson;Password=123456;Database=aluno23db";
+
+//using faz o release, ou seja, faz o dispose(garbage collector)
+objetos que não estão em uso, estejam fora da memória.
+
+ //executa e da retorno da quantidade de linhas afetadas, retorno é int
+                    comando.ExecuteNonQuery();
+                    // lê o resultado de um select
+                    //comando.ExecuteReader();
+                    // retorna a primeira coluna da primeira linha do primeiro resultado.
+                    //comando.ExecuteScalar();
+
+select @@identity // retorna o último id cadastrado na tabela.
+
+Dominio tem regras de negócio
+
+classe com -> out List<string> mensagens
