@@ -5,13 +5,13 @@ modulo.factory("loginService", function ($http) {
     });
 
     function obterHerois() {
-        return $http.get("http://localhost:24206/api/herois");
+        return $http.get("http://localhost:24206/api/Login");
     }
 
     function enviarHeroi() {
         return $http({
             method: "post",
-            url: "http://localhost:24206/api/herois",
+            url: "http://localhost:24206/api/Login",
             data: {
                 "Id": 0,
                 "Nome": "Giovani",
@@ -31,13 +31,13 @@ modulo.factory("chatService", function ($http) {
     });
 
     function obterHerois() {
-        return $http.get("http://localhost:24206/api/herois");
+        return $http.get("http://localhost:24206/api/Chat");
     }
 
     function enviarHeroi() {
         return $http({
             method: "post",
-            url: "http://localhost:24206/api/herois",
+            url: "http://localhost:24206/api/Chat",
             data: {
                 "Id": 0,
                 "Nome": "Giovani",
