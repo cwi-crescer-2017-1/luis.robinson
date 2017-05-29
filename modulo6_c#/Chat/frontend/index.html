@@ -1,26 +1,30 @@
 <!DOCTYPE html>
-<html ng-app="herois-app">
+<html lang="br" ng-app="chatCwi">
+    <head>
+        <title>Chat Interno</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Exemplo</title>
-</head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css">
 
-<body ng-controller="HeroisController">
-    <h1>Projeto Crescer - CWI Software</h1>
-    
-    <ul>
-        <li ng-repeat="heroi in herois">
-            {{ heroi.Nome }} - {{ heroi.Poder.Dano }}
-        </li>
-    </ul>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.6.4/angular-locale_pt-br.min.js"></script>
 
-    <button ng-click="enviarHeroi()">Enviar Herói</button>
+        <script src="js/controller.js"></script>
+        <script src="js/service.js"></script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-    <script src="js/controller.js"></script>
-    <script src="js/service.js"></script>
-</body>
 
+
+    </head>
+    <body>
+         <div align = "center" class="container">
+          <ng-view></ng-view>
+
+
+
+        </div>
+         <ng-view></ng-view>
+    </body>
 </html>

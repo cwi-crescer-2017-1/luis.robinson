@@ -1,4 +1,4 @@
-var modulo = angular.module('herois-app', []);
+var modulo = angular.module('chatCwi', ['ngRoute']);
 
 modulo.controller('HeroisController', function ($scope, heroisService) {
     $scope.herois = {};
