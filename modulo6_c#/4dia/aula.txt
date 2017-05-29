@@ -31,3 +31,5 @@ select @@identity // retorna o último id cadastrado na tabela.
 Dominio tem regras de negócio
 
 classe com -> out List<string> mensagens
+
+Regras de negócio
