@@ -71,7 +71,22 @@ namespace Demo1.Infraestrutura.Repositorios
 
         public void Excluir(int id)
         {
-            throw new NotImplementedException();
+            using (var conexao = new SqlConnection(stringConexao))
+            {
+                conexao.Open();
+
+                using (var commando = conexao.CreateCommand())
+                {
+                    commando.CommandText =
+                        @"DELETE 
+                            FROM Pedido 
+                           WHERE Id = @Id";
+
+                    commando.Parameters.AddWithValue("Id", id);
+                    commando.ExecuteNonQuery();
+                    
+                }
+            }
         }
 
         public IEnumerable<Pedido> Listar()
