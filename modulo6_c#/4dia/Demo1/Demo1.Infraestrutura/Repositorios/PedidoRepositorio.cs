@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Demo1.Dominio.Entidades;
 
 namespace Demo1.Infraestrutura.Repositorios
 {
@@ -16,7 +15,6 @@ namespace Demo1.Infraestrutura.Repositorios
 
         public void Criar(Pedido pedido)
         {
-
             throw new NotImplementedException();
         }
 

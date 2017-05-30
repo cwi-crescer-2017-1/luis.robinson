@@ -10,7 +10,7 @@ namespace ExemploWebApi.Models
         
 
         public int Id { get; set; }
-        public string msg { get; set; }
+        public string Msg { get; set; }
         public int UserId { get; set; }
     }
 
