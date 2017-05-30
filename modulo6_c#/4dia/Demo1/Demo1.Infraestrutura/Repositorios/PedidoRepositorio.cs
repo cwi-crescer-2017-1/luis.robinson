@@ -17,7 +17,22 @@ namespace Demo1.Infraestrutura.Repositorios
 
         public void Alterar(Pedido pedido)
         {
-            throw new NotImplementedException();
+            using (var conexao = new SqlConnection(stringConexao))
+            {
+                conexao.Open();
+
+                using (var comando = conexao.CreateCommand())
+                {
+                    comando.CommandText =
+                        @"UPDATE Pedido 
+                             SET NomeCliente = @nome 
+                           WHERE Id = @pedidoId";
+
+                    comando.Parameters.AddWithValue("nome", pedido.NomeCliente);
+                    comando.Parameters.AddWithValue("pedidoId", pedido.Id);
+                    comando.ExecuteNonQuery();                    
+                }
+            }
         }
 
         public void Criar(Pedido pedido)
@@ -84,6 +99,8 @@ namespace Demo1.Infraestrutura.Repositorios
 
                     commando.Parameters.AddWithValue("Id", id);
                     commando.ExecuteNonQuery();
+
+                    
                     
                 }
             }
