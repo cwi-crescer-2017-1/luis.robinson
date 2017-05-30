@@ -33,3 +33,6 @@ Dominio tem regras de negócio
 classe com -> out List<string> mensagens
 
 Regras de negócio
+
+SQLCMD https://www.thoughtco.com/sqlcmd-step-by-step-1019881
+https://sqlstudies.com/2016/10/19/installing-sqlcmd/
