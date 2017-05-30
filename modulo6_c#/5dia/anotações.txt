@@ -1,0 +1,6 @@
+ORM - Dotnet
+FirstOrDefault -- procura o primeiro resultado.
+
+
+MICROSOFT SQL STUDIO
+FERRAMENTAS -> SQL SERVER PROFILE
