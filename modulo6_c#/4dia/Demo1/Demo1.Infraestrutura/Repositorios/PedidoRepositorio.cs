@@ -108,7 +108,60 @@ namespace Demo1.Infraestrutura.Repositorios
 
         public IEnumerable<Pedido> Listar()
         {
-            throw new NotImplementedException();
+            List<Pedido> pedidos = new List<Pedido>();
+
+            using (var conexao = new SqlConnection(stringConexao))
+            {
+                conexao.Open();
+
+                using (var comando = conexao.CreateCommand())
+                {
+                    comando.CommandText =
+                        @"SELECT Id,
+                                 NomeCliente 
+                            FROM Pedido";
+
+                    var dataReader = comando.ExecuteReader();
+
+                    // popula a lista de pedidos
+                    while (dataReader.Read())
+                    {
+                        var pedido = new Pedido();
+
+                        pedido.Id = (int)dataReader["Id"];
+                        pedido.NomeCliente = (string)dataReader["NomeCliente"];
+                        pedido.Itens = new List<ItemPedido>();
+
+                        pedidos.Add(pedido);
+                    }
+
+
+                    foreach (var pedido in pedidos)
+                    {
+                        comando.CommandText = @"SELECT PedidoId,
+                                                       ProdutoId, 
+                                                       Quantidade
+                                                  FROM ItemPedido 
+                                                 WHERE PedidoId = @pedidoId";
+
+                        comando.Parameters.AddWithValue("pedidoId", pedido.Id);
+                        dataReader = comando.ExecuteReader();
+                        comando.Parameters.Clear();
+
+                        while (dataReader.Read())
+                        {                            
+                            var pedidoItem = new ItemPedido();
+
+                            pedidoItem.Id = (int)dataReader["Id"];
+                            pedidoItem.ProdutoId = (int)dataReader["ProdutoId"];
+                            pedidoItem.Quantidade = (int)dataReader["Quantidade"];
+
+                            pedido.Itens.Add(pedidoItem);
+                        }
+                    }
+                }
+            }
+            return pedidos;
         }
 
         public Pedido Obter(int id)
