@@ -166,7 +166,57 @@ namespace Demo1.Infraestrutura.Repositorios
 
         public Pedido Obter(int id)
         {
-            throw new NotImplementedException();
-        }
+            Pedido pedido = new Pedido();
+
+            using (var conexao = new SqlConnection(stringConexao))
+            {
+                conexao.Open();
+
+                using (var comando = conexao.CreateCommand())
+                {
+                    comando.CommandText =
+                        @"SELECT Id, 
+                                 NomeCliente 
+                            FROM Pedido 
+                           WHERE Id = @id";
+
+                    comando.Parameters.AddWithValue("id", id);
+
+                    var dataReader = comando.ExecuteReader();
+
+                    // teoricamente só pode haver um ID.
+                    if (dataReader.Read())
+                    {
+                        pedido.Id = id;
+                        pedido.NomeCliente = (string)dataReader["NomeCliente"];
+                        pedido.Itens = new List<ItemPedido>();
+
+                        comando.CommandText = @"SELECT PedidoId, 
+                                                       ProdutoId, 
+                                                       Quantidade
+                                                  FROM ItemPedido 
+                                                 WHERE PedidoId = @pedidoId";
+
+                        comando.Parameters.AddWithValue("pedidoId", pedido.Id);
+
+                        dataReader = comando.ExecuteReader();
+
+                        while (dataReader.Read())
+                        {
+                            var itemPedido = new ItemPedido();
+
+                            itemPedido.Id = (int)dataReader["Id"];
+                            itemPedido.ProdutoId = (int)dataReader["ProdutoId"];
+                            itemPedido.Quantidade = (int)dataReader["Quantidade"];                            
+
+                            pedido.Itens.Add(itemPedido);
+                        }
+                    }
+
+                    
+                }
+            }
+            return pedido;        
+    }
     }
 }
