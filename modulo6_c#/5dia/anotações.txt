@@ -4,3 +4,17 @@ FirstOrDefault -- procura o primeiro resultado.
 
 MICROSOFT SQL STUDIO
 FERRAMENTAS -> SQL SERVER PROFILE
+
+Criar projeto chamado EditoraCrescer.Infraesturtura (do tipo "Class Library")
+* 
+`$ Install-Package EntityFramework`
+*
+ Criar Entidades (Livro e Autor)
+* 
+Criar Contexto
+* `$ Enable-Migrations`
+*
+ `$ Add-Migration CriacaoDoBanco`
+*
+ `$ Update-Database`
+Enjoy
