@@ -53,12 +53,14 @@
     <Compile Include="Entidades\Revisor.cs" />
     <Compile Include="Mappings\AutorMap.cs" />
     <Compile Include="Mappings\LivroMap.cs" />
+    <Compile Include="Mappings\RevisorMap.cs" />
     <Compile Include="Migrations\201705301932510_CriacaoDoBanco.cs" />
     <Compile Include="Migrations\201705301932510_CriacaoDoBanco.Designer.cs">
       <DependentUpon>201705301932510_CriacaoDoBanco.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositorios\AutorRepositorio.cs" />
     <Compile Include="Repositorios\LivroRepositorio.cs" />
   </ItemGroup>
   <ItemGroup>
