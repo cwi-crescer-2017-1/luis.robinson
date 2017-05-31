@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EditoraCrescer.Infraesturtura.Repositorios
 {
-    class RevisorRepositorio
+    public class RevisorRepositorio
     {
         private Contexto contexto = new Contexto();
 
