@@ -13,6 +13,7 @@ namespace EditoraCrescer.Infraesturtura.Mappings
         public RevisorMap()
         {
             ToTable("Revisores");
+
             HasKey(x => x.Id);
         }
         

@@ -58,9 +58,13 @@
     <Compile Include="Migrations\201705301932510_CriacaoDoBanco.Designer.cs">
       <DependentUpon>201705301932510_CriacaoDoBanco.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201705310439545_CriacaoDoBanco1.cs" />
-    <Compile Include="Migrations\201705310439545_CriacaoDoBanco1.Designer.cs">
-      <DependentUpon>201705310439545_CriacaoDoBanco1.cs</DependentUpon>
+    <Compile Include="Migrations\201705312016461_CriacaoDoBanco1.cs" />
+    <Compile Include="Migrations\201705312016461_CriacaoDoBanco1.Designer.cs">
+      <DependentUpon>201705312016461_CriacaoDoBanco1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705312027486_CriacaoDoBanco2.cs" />
+    <Compile Include="Migrations\201705312027486_CriacaoDoBanco2.Designer.cs">
+      <DependentUpon>201705312027486_CriacaoDoBanco2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -76,8 +80,11 @@
     <EmbeddedResource Include="Migrations\201705301932510_CriacaoDoBanco.resx">
       <DependentUpon>201705301932510_CriacaoDoBanco.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705310439545_CriacaoDoBanco1.resx">
-      <DependentUpon>201705310439545_CriacaoDoBanco1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201705312016461_CriacaoDoBanco1.resx">
+      <DependentUpon>201705312016461_CriacaoDoBanco1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705312027486_CriacaoDoBanco2.resx">
+      <DependentUpon>201705312027486_CriacaoDoBanco2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
