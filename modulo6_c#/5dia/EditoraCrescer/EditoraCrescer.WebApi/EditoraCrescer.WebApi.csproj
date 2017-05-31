@@ -109,6 +109,12 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EditoraCrescer.Infraesturtura\EditoraCrescer.Infraesturtura.csproj">
+      <Project>{65A964FC-989D-49AC-8B93-E15962181ABD}</Project>
+      <Name>EditoraCrescer.Infraesturtura</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
