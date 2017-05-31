@@ -29,7 +29,8 @@ namespace EditoraCrescer.Infraesturtura.Repositorios
 
         public List<Livro> ObterPorGenero(string genero)
         {
-            return contexto.Livros.Where(x => x.Genero == genero).ToList();
+            //contains case sensitive
+            return contexto.Livros.Where(x => x.Genero.Contains(genero)).ToList();
         }
 
         
