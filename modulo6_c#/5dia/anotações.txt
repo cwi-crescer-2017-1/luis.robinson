@@ -28,3 +28,5 @@ virtual -> o filho pode dar overload no método do pai.
 
 
 quando der pau nos comandos, deletar a pasta migration, deletar todas as tabelas e mandar gerar de novo.
+
+dynamic object para retornar objectos de forma resumida.
