@@ -18,3 +18,13 @@ Criar Contexto
 *
  `$ Update-Database`
 Enjoy
+
+Route prefix = define um prefixo para uma rota.
+Maneira mais fácil de deixar o livroRepositorio é deixar :Idisposable
+
+protected virtual void
+protected -> so os filhos podem ver.
+virtual -> o filho pode dar overload no método do pai.
+
+
+quando der pau nos comandos, deletar a pasta migration, deletar todas as tabelas e mandar gerar de novo.
