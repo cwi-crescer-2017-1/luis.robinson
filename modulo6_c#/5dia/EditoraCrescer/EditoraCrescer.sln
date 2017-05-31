@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.6
+VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EditoraCrescer.Infraesturtura", "EditoraCrescer.Infraesturtura\EditoraCrescer.Infraesturtura.csproj", "{65A964FC-989D-49AC-8B93-E15962181ABD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Program", "Program\Program.csproj", "{058267C0-C894-4EAD-A073-9C68662BA3C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EditoraCrescer.WebApi", "EditoraCrescer.WebApi\EditoraCrescer.WebApi.csproj", "{8F9352AA-1486-48A2-A373-47F1624DCE6B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{058267C0-C894-4EAD-A073-9C68662BA3C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{058267C0-C894-4EAD-A073-9C68662BA3C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{058267C0-C894-4EAD-A073-9C68662BA3C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F9352AA-1486-48A2-A373-47F1624DCE6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F9352AA-1486-48A2-A373-47F1624DCE6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F9352AA-1486-48A2-A373-47F1624DCE6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F9352AA-1486-48A2-A373-47F1624DCE6B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
