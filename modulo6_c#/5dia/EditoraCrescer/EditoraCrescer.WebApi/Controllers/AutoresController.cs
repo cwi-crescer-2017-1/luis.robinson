@@ -1,4 +1,5 @@
-﻿using EditoraCrescer.Infraesturtura.Entidades;
+﻿using EditoraCrescer.Infraesturtura;
+using EditoraCrescer.Infraesturtura.Entidades;
 using EditoraCrescer.Infraesturtura.Repositorios;
 using System;
 using System.Collections.Generic;
@@ -9,24 +10,57 @@ using System.Web.Http;
 
 namespace EditoraCrescer.WebApi.Controllers
 {
+    [RoutePrefix("api/Autores")]
     public class AutoresController : ApiController
     {
+        private Contexto contexto = new Contexto();
+
         private AutorRepositorio repositorio = new AutorRepositorio();
 
-        public IHttpActionResult Get()
+        [HttpGet]
+        public HttpResponseMessage ObterAutores()
         {
-            return Ok(repositorio.Listar());
+            var autores = repositorio.Listar();
+            return Request.CreateResponse(HttpStatusCode.OK, new { data = autores });
         }
 
-        public IHttpActionResult Post(Autor autor)
+        [Route("{id:int}")]
+        [HttpGet]
+        public HttpResponseMessage ObterAutorPorId(int id)
         {
-            repositorio.Salvar(autor);
-            return Ok();
+            var autor = repositorio.ObterPorId(id);            
+            return Request.CreateResponse(HttpStatusCode.OK, new { data = autor });
+        }       
+
+        [HttpPost]
+
+        public HttpResponseMessage Post(Autor autor)
+        {   repositorio.Salvar(autor);
+            return Request.CreateResponse(HttpStatusCode.OK, new { data = autor });
         }
 
-        public IHttpActionResult Delete(int id)
-        {
-            return Ok(repositorio.Excluir(id));
+        [Route("{id:int}")]
+        [HttpPut]
+        public HttpResponseMessage Update(int id, Autor autor)
+        {            
+            var autorNovo = repositorio.Alterar(id, autor);
+            return Request.CreateResponse(HttpStatusCode.OK, new { data = autorNovo });
         }
+
+        [Route("{id:int}")]
+        [HttpDelete]
+        public HttpResponseMessage Delete(int id)
+        {
+            repositorio.Excluir(id);
+            return Request.CreateResponse(HttpStatusCode.OK);
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+                repositorio.Dispose();
+            base.Dispose(disposing);
+        }
+
     }
 }
