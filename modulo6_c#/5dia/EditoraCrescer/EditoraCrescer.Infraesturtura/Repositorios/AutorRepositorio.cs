@@ -19,9 +19,7 @@ namespace EditoraCrescer.Infraesturtura.Repositorios
 
         public Autor ObterPorId(int id)
         {
-            Autor autor = contexto.Autores.FirstOrDefault(x => x.Id == id);
-            contexto.Autores.Add(autor);
-            contexto.SaveChanges();
+            Autor autor = contexto.Autores.FirstOrDefault(x => x.Id == id);            
             return autor;
         }
 
