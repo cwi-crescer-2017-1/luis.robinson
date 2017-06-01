@@ -1,4 +1,5 @@
-﻿using EditoraCrescer.Infraesturtura.Entidades;
+﻿using EditoraCrescer.Infraesturtura;
+using EditoraCrescer.Infraesturtura.Entidades;
 using EditoraCrescer.Infraesturtura.Repositorios;
 using System;
 using System.Collections.Generic;
@@ -10,71 +11,80 @@ using System.Web.Http;
 namespace EditoraCrescer.WebApi.Controllers
 {
     [RoutePrefix("api/Livros")]
-
     public class LivrosController : ApiController
     {
-        private readonly LivroRepositorio repositorio = new LivroRepositorio();
+        private Contexto contexto = new Contexto();
+
+        private LivroRepositorio repositorio = new LivroRepositorio();
 
         [HttpGet]
-        public IHttpActionResult Get()
+        public HttpResponseMessage ObterLivros()
         {
             var livros = repositorio.Obter();
+            return Request.CreateResponse(HttpStatusCode.OK, new { data = livros });
 
-            return Ok(new { dados = livros });
         }
 
-        [HttpGet]
         [Route("{isbn:int}")]
-        public IHttpActionResult Get(int isbn)
+        [HttpGet]
+        public HttpResponseMessage ObterLivroPorId(int isbn)
         {
-            var livros = repositorio.ObterPorIsbn(isbn);
-
-            return Ok(new { dados = livros });
+            var livro = repositorio.ObterPorIsbn(isbn);            
+            return Request.CreateResponse(HttpStatusCode.OK, new { data = livro });
         }
 
+
+        [Route("{genero}")]
         [HttpGet]
-        [Route("{genero:string}")]
-        public IHttpActionResult Get(string genero)
+        public HttpResponseMessage ObterLivroPorGenero(string genero)
         {
             var livros = repositorio.ObterPorGenero(genero);
+            return Request.CreateResponse(HttpStatusCode.OK, new { data = livros });
 
-            return Ok(new { dados = livros });
+
+        }
+
+        [Route("Lancamentos")]
+        [HttpGet]
+        public HttpResponseMessage ObterLancamentosDeLivros()
+        {
+            var dataAtual = DateTime.Today;
+            var livros = repositorio.ObterLancamentos(dataAtual);
+            return Request.CreateResponse(HttpStatusCode.OK, new { data = livros });
+
         }
 
         [HttpPost]
-        public IHttpActionResult Post(Livro livro)
+        public HttpResponseMessage Post(Livro livro)
         {
             repositorio.Criar(livro);
-            return Ok();
+            return Request.CreateResponse(HttpStatusCode.OK, new { data = livro });
         }
 
+        [Route("{id:int}")]
         [HttpDelete]
-        [Route("{isbn:int}")]        
-        public IHttpActionResult Remove(int isbn)
-        {
-            return Ok(repositorio.Delete(isbn));
+        public HttpResponseMessage Delete(int id)
+        {            
+            repositorio.Delete(id);
+            return Request.CreateResponse(HttpStatusCode.OK);
         }
 
-        
-        
-        public IHttpActionResult Alterar(int isbn, Livro livro)
-        {
-            if (isbn == livro.Isbn)
-            {
-                repositorio.Alterar(livro);
-                return Ok();
-            }
-            else {
-                return BadRequest("Sem id correto, sem livro.");
-            }
-            
+        [Route("{id:int}")]
+        [HttpPut]
+        public HttpResponseMessage AlterarLivro(int id, Livro livro)
+        {           
+            repositorio.Alterar(id, livro);
+            return Request.CreateResponse(HttpStatusCode.OK, new { data = livro });
         }
+
 
         protected override void Dispose(bool disposing)
         {
-            repositorio.Dispose();
+            if (disposing)
+                repositorio.Dispose();
             base.Dispose(disposing);
         }
+
     }
 }
 

@@ -77,11 +77,12 @@ namespace EditoraCrescer.Infraesturtura.Repositorios
             return livroExcluido;
         }
 
-        public void Alterar(Livro livro)
+        public Livro Alterar(int id, Livro livroModificado)
         {
-            //Livro livro = contexto.Livros.FirstOrDefault(x => x.Isbn == isbn);
-            contexto.Entry(livro).State = EntityState.Modified;
-            contexto.SaveChanges();            
+            var livro = contexto.Livros.FirstOrDefault(x => x.Isbn == id);
+            contexto.Entry(livroModificado).State = EntityState.Modified;
+            contexto.SaveChanges();
+            return contexto.Livros.FirstOrDefault(x => x.Isbn == id);
         }
 
         public void Dispose()
