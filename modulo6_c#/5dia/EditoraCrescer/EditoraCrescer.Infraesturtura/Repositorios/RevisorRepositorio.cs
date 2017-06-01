@@ -19,9 +19,7 @@ namespace EditoraCrescer.Infraesturtura.Repositorios
 
         public Revisor ObterPorId(int id)
         {
-            var revisor = contexto.Revisores.FirstOrDefault(x => x.Id == id);
-            contexto.Revisores.Add(revisor);
-            contexto.SaveChanges();
+            var revisor = contexto.Revisores.FirstOrDefault(x => x.Id == id);           
             return revisor;
         }
 
