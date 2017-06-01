@@ -1,0 +1,24 @@
+Tratamento de exceções.
+
+Webconfigapi
+enablecors
+
+cada exception tem um numero padrão.
+
+
+trabalho
+https://gist.github.com/fabriciorissetto/9c654c527f9973dd68aa6c579f9ff832
+
+Tela de listagem de livros -> 05/06/2017
+
+Mocap -> esboço de tela
+
+```$ Install-Package Microsoft.AspNet.WebApi.Cors
+```
+
+[3:25] 
+`config.EnableCors(new EnableCorsAttribute("*", "*", "*"));`
+
+dry (projeção)
+query com manipulação de data
+skyp and take
