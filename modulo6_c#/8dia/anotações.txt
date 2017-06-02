@@ -1,0 +1,19 @@
+autenticação
+basic hash
+bearer token
+bigest md5
+401 - sem autorização
+code 64
+
+rotinas de email SMTP
+https://gist.github.com/fabriciorissetto/9c654c527f9973dd68aa6c579f9ff832
+
+// subir o server mesmo com a api.
+// não deixa o cache.
+
+
+http-server -c-1
+
+
+
+toast angular
